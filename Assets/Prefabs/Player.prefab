@@ -346,6 +346,6 @@ MonoBehaviour:
   Speed: 0.5
   MaxSpeed: 10
   SpeedDampening: 0.95
-  Epsilon: 0.001
+  Epsilon: 0.00001
   CurrentSpeed: {x: 0, y: 0}
   PlayerMesh: {fileID: 8676080533046496602}

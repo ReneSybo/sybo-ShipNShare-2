@@ -8,8 +8,8 @@ namespace Game.Player
 	{
 		[SerializeField] float _enemySpawnMin = 10f;
 		[SerializeField] float _enemySpawnMax = 20f;
-		[SerializeField] float _avoidingRange = 0f;
-		[SerializeField] float _seperateFactor = 0f;
+		[SerializeField] float _avoidingRange = 1f;
+		[SerializeField] float _seperateFactor = 2f;
 		
 		public static Vector3 PlayerPos;
 		public static Vector2 EnemySpawnDistances;

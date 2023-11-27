@@ -25,9 +25,12 @@ namespace Game.Player
 			float horizontalMovement = Input.GetAxis("Horizontal");
 			float verticalMovement = Input.GetAxis("Vertical");
 			
+			Vector2 movementToAdd = new Vector2(horizontalMovement, verticalMovement);
+			movementToAdd.Normalize();
+			
 			CurrentSpeed *= SpeedDampening;
-			CurrentSpeed.x += horizontalMovement * Speed * GameTime.DeltaTime;
-			CurrentSpeed.y += verticalMovement * Speed * GameTime.DeltaTime;
+			CurrentSpeed.x += movementToAdd.x * Speed * GameTime.DeltaTime;
+			CurrentSpeed.y += movementToAdd.y * Speed * GameTime.DeltaTime;
 
 			if (Mathf.Abs(CurrentSpeed.x) <= Epsilon)
 			{
