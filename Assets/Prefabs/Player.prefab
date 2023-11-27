@@ -1058,13 +1058,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a19432f4a91a4392accbe0ca61a309eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.5
-  MaxSpeed: 10
-  SpeedDampening: 0.95
-  Epsilon: 0.001
-  CurrentSpeed: {x: 0, y: 0}
+  Speed: 6
+  SpeedDampening: 0.1
   PlayerMesh: {fileID: 8436190381548384967}
   _animator: {fileID: 4981663008166504798}
+  CurrentSpeed: {x: 0, y: 0, z: 0}
 --- !u!1 &8675247413121304412
 GameObject:
   m_ObjectHideFlags: 0
