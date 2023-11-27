@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a19432f4a91a4392accbe0ca61a309eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 0.5
   MaxSpeed: 10
   SpeedDampening: 0.95
   Epsilon: 0.001
