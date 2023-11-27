@@ -43,6 +43,7 @@ namespace Game.Player
 			currentPos.x += CurrentSpeed.x;
 			currentPos.z += CurrentSpeed.y;
 			_playerTransform.localPosition = currentPos;
+			GlobalVariables.PlayerPos = currentPos;
 			
 			PlayerMesh.rotation = Quaternion.LookRotation(new Vector3(CurrentSpeed.x, 0, CurrentSpeed.y), Vector3.up);
 		}

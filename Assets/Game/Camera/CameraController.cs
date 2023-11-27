@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     void Awake()
     {
         _cameraTransform = transform;
-        _direction = _cameraTransform.forward;
+        _direction = -_cameraTransform.forward;
     }
 
     void LateUpdate()
