@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Game.Events;
 using Game.Player;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 namespace Game.Enemies
 {
-	public class EnemyController : MonoBehaviour
+	public class EnemyController : MonoBehaviour, ISpawnable
 	{
 		Transform _enemyTransform;
 		Vector3 _currentDirection;
@@ -20,13 +18,10 @@ namespace Game.Enemies
 		public float HurtRadius = 1f;
 		public float Speed = 1f;
 		public float TimeBetweenOrientation = 0.1f;
-		public float TimeBetweenHurting = 0.1f;
 
 		void Awake()
 		{
-			GlobalVariables.Enemies.Add(this);
 			_enemyTransform = transform;
-			Respawn();
 		}
 
 		void OnDrawGizmosSelected()
@@ -39,7 +34,7 @@ namespace Game.Enemies
 		}
 
 		[ContextMenu("Respawn")]
-		void Respawn()
+		public void Spawn()
 		{
 			Vector2 distances = GlobalVariables.EnemySpawnDistances;
 			float distance = Random.Range(distances.x, distances.y);
@@ -52,6 +47,8 @@ namespace Game.Enemies
 			_enemyTransform.localPosition = _currentPosition;
 			_enemyTransform.LookAt(GlobalVariables.PlayerPos);
 			_currentDirection = _enemyTransform.forward;
+			
+			GlobalVariables.Enemies.Add(this);
 		}
 
 		void Update()
@@ -78,8 +75,7 @@ namespace Game.Enemies
 				Vector3 distanceToPlayer = GlobalVariables.PlayerPos - _currentPosition;
 				if (distanceToPlayer.sqrMagnitude <= HurtRadius)
 				{
-					GameEvent.PlayerHurt.Dispatch();
-					Respawn();
+					GameEvents.EnemyDied.Dispatch(this);
 				}
 			}
 		}
@@ -102,6 +98,11 @@ namespace Game.Enemies
 		}
 
 		void OnDestroy()
+		{
+			GlobalVariables.Enemies.Remove(this);
+		}
+
+		public void Despawn()
 		{
 			GlobalVariables.Enemies.Remove(this);
 		}
