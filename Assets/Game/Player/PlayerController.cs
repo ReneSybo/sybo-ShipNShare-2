@@ -12,6 +12,8 @@ namespace Game.Player
 		public Vector2 CurrentSpeed = Vector2.zero;
 		
 		public Transform PlayerMesh;
+
+		public Animator _animator;
 		
 		Transform _playerTransform;
 
@@ -44,8 +46,17 @@ namespace Game.Player
 			currentPos.z += CurrentSpeed.y;
 			_playerTransform.localPosition = currentPos;
 			GlobalVariables.PlayerPos = currentPos;
+
+			// Setting animator values 
+			_animator.SetFloat("Speed", CurrentSpeed.magnitude);
+
+			// Only update direction when actually getting a new one /Baldwin
+			if(CurrentSpeed.magnitude > 0.01f)
+			{
+				PlayerMesh.rotation = Quaternion.LookRotation(new Vector3(CurrentSpeed.x, 0, CurrentSpeed.y), Vector3.up);
+			}
 			
-			PlayerMesh.rotation = Quaternion.LookRotation(new Vector3(CurrentSpeed.x, 0, CurrentSpeed.y), Vector3.up);
+
 		}
 	}
 }
