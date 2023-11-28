@@ -3,6 +3,7 @@ using Game.Enemies;
 using Game.Events;
 using Game.Player;
 using UnityEngine;
+using AudioType = Game.Audio.AudioType;
 
 namespace Game.Money
 {
@@ -24,6 +25,7 @@ namespace Game.Money
 			if (distanceToPlayer <= PickupDistance)
 			{
 				GlobalVariables.Money += _value;
+				GameEvents.PlayAudio.Dispatch(AudioType.PickupCoin);
 				GameEvents.MoneyGained.Dispatch(this);
 			}
 		}

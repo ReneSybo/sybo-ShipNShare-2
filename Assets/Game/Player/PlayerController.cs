@@ -1,5 +1,6 @@
 ﻿using Game.Events;
 using UnityEngine;
+using AudioType = Game.Audio.AudioType;
 
 namespace Game.Player
 {
@@ -64,6 +65,8 @@ namespace Game.Player
 				_currentMeshForward = Vector3.forward;
 				CurrentSpeed = Vector3.zero;
 			}
+			
+			GameEvents.PlayAudio.Dispatch(AudioType.PlayerHit);
 		}
 
 		void OnProjectileSpawned(bool fromPrimary)

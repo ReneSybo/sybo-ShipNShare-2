@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Audio;
 using Game.Enemies;
 using Game.Money;
 using Game.Player;
@@ -8,6 +9,7 @@ namespace Game.Events
 	public static class GameEvents
 	{
 		public static readonly GameEvent PlayerHurt = new GameEvent();
+		public static readonly GameEvent<AudioType> PlayAudio = new GameEvent<AudioType>();
 		public static readonly GameEvent<bool> CutsceneState = new GameEvent<bool>();
 		public static readonly GameEvent GameEnded = new GameEvent(); //Player died, show full screen "Game Over"
 		public static readonly GameEvent GameStarted = new GameEvent(); //Click "Let's do it!"
