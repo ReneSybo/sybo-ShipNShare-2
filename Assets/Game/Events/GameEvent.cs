@@ -20,6 +20,7 @@ namespace Game.Events
 		public static readonly GameEvent<Projectile> ProjectileDespawned = new GameEvent<Projectile>();
 		public static readonly GameEvent<bool> ProjectileSpawned = new GameEvent<bool>();
 		public static readonly GameEvent<MoneyEntity> MoneyGained = new GameEvent<MoneyEntity>();
+		public static readonly GameEvent MoneySpend = new GameEvent();
 	}
 	
 	public class GameEvent

@@ -99,10 +99,12 @@ namespace Game.Enemies
 			
 			_enemyTransform.localPosition = CurrentPosition;
 
-			if (_timeToHurt <= 0f)
+			Vector3 distanceToPlayer = GlobalVariables.PlayerPos - CurrentPosition;
+			if (distanceToPlayer.sqrMagnitude <= HurtRadius)
 			{
-				Vector3 distanceToPlayer = GlobalVariables.PlayerPos - CurrentPosition;
-				if (distanceToPlayer.sqrMagnitude <= HurtRadius)
+				_pushDir -= distanceToPlayer.normalized * GlobalVariables.PlayerAvoidFactor;
+
+				if (_timeToHurt <= 0f)
 				{
 					_timeToHurt = _config.TimeBetweenAttacks;
 					GlobalVariables.PlayerHealth -= _config.Damage;

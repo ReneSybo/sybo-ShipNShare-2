@@ -279,11 +279,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Renderer: {fileID: 6593066920953760449}
   Filter: {fileID: 915431829066931859}
+  MoneyOnDeath: 0
   Health: 0
   CurrentPosition: {x: 0, y: 0, z: 0}
-  HurtRadius: 1
+  HurtRadius: 2
   TimeBetweenOrientation: 0.1
-  DeathSpawn: {fileID: 5491046246385198874, guid: 5ae18e4459219e440bde1ce0cd9744de, type: 3}
 --- !u!1 &6279685524101805135
 GameObject:
   m_ObjectHideFlags: 0

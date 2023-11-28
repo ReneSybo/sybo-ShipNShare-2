@@ -1,5 +1,8 @@
 ﻿using System;
 using Game.Events;
+using Game.Money;
+using Game.Player;
+using TMPro;
 using UnityEngine;
 
 namespace Game
@@ -10,6 +13,9 @@ namespace Game
 		public GameObject ShopRoot;
 		public GameObject GameOverRoot;
 		public GameObject GameStartRoot;
+		public GameObject HudRoot;
+		
+		public TMP_Text MoneyText;
 		
 		public GameObject ShopScene3D;
 		public GameObject IntroScene3D;
@@ -18,8 +24,29 @@ namespace Game
 		{
 			GameEvents.GameEnded.AddListener(OnGameEnded);
 			GameEvents.RoundOver.AddListener(OnRoundEnded);
+			GameEvents.CutsceneState.AddListener(OnCutsceneState);
+			GameEvents.MoneyGained.AddListener(OnMoneyGained);
+			GameEvents.MoneySpend.AddListener(UpdateMoneyText);
 			
 			OnResetGame();
+		}
+
+		void OnMoneyGained(MoneyEntity entity)
+		{
+			UpdateMoneyText();
+		}
+
+		void UpdateMoneyText()
+		{
+			MoneyText.text = "Rad sea shells: " + GlobalVariables.Money;
+		}
+
+		void OnCutsceneState(bool state)
+		{
+			if (!state)
+			{
+				HudRoot.SetActive(true);
+			}
 		}
 
 		public void OnStartGame()
@@ -49,6 +76,7 @@ namespace Game
 		{
 			HideAll();
 			MainMenuRoot.SetActive(true);
+			UpdateMoneyText();
 		}
 
 		void HideAll()
@@ -59,6 +87,7 @@ namespace Game
 			ShopScene3D.SetActive(false);
 			GameStartRoot.SetActive(false);
 			IntroScene3D.SetActive(false);
+			HudRoot.SetActive(false);
 		}
 
 		void OnRoundEnded()
