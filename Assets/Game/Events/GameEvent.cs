@@ -12,6 +12,7 @@ namespace Game.Events
 		public static readonly GameEvent CastleTrashed = new GameEvent(); //The sand castle is ruined!
 		public static readonly GameEvent RoundOver = new GameEvent(); //All enemies dead
 		public static readonly GameEvent RoundStarted = new GameEvent(); //Left the shop screen
+		public static readonly GameEvent<EnemyDeath> EnemyDeathDone = new GameEvent<EnemyDeath>();
 		public static readonly GameEvent<EnemyController> EnemyDied = new GameEvent<EnemyController>();
 		public static readonly GameEvent<EnemyConfig> EnemySpawned = new GameEvent<EnemyConfig>();
 		public static readonly GameEvent<Projectile> ProjectileDespawned = new GameEvent<Projectile>();
