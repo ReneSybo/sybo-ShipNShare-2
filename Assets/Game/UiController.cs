@@ -10,6 +10,8 @@ namespace Game
 		public GameObject ShopRoot;
 		public GameObject GameOverRoot;
 		
+		public GameObject ShopScene3D;
+		
 		void Awake()
 		{
 			GameEvents.GameEnded.AddListener(OnGameEnded);
@@ -41,12 +43,14 @@ namespace Game
 			MainMenuRoot.SetActive(false);
 			ShopRoot.SetActive(false);
 			GameOverRoot.SetActive(false);
+			ShopScene3D.SetActive(false);
 		}
 
 		void OnRoundEnded()
 		{
 			HideAll();
 			ShopRoot.SetActive(true);
+			ShopScene3D.SetActive(true);
 		}
 
 		void OnGameEnded()

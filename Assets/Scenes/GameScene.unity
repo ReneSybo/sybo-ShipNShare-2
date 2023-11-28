@@ -647,6 +647,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1583786604892943004, guid: 254c68228b2196041908690167381592, type: 3}
+      propertyPath: ShopScene3D
+      value: 
+      objectReference: {fileID: 2022609157}
     - target: {fileID: 8871796062956716372, guid: 254c68228b2196041908690167381592, type: 3}
       propertyPath: m_Name
       value: UI
@@ -716,6 +720,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialSpawnCount: 10
   Source: {fileID: 5340388897593716612, guid: e3ec15f14826baf498ed30dbe08ed0d3, type: 3}
+--- !u!1 &2022609157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2575810342983952328, guid: 14e057b0026f9534994fbc64c371116a, type: 3}
+  m_PrefabInstance: {fileID: 2575810343074184392}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2575810343074184392
 PrefabInstance:
   m_ObjectHideFlags: 0

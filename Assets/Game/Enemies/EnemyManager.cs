@@ -71,7 +71,7 @@ namespace Game.Enemies
 				_currentRound.Update();
 				if (GlobalVariables.Enemies.Count == 0 && _currentRound.Completed())
 				{
-					StartNextRound();
+					GameEvents.RoundOver.Dispatch();
 				}
 			}
 		}
