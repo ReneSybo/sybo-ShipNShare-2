@@ -6,5 +6,7 @@
 		PickupCoin,
 		PlayerHit,
 		WeaponShot,
+		EnemyHit,
+		EnemyDeath,
 	}
 }
