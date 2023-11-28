@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Compositions:
   - Config: {fileID: 11400000, guid: 88923f64301756644b59a98a487a6ff7, type: 2}
-    Count: 50
-    TimeBetweenSpawn: 0.5
+    Count: 10
+    TimeBetweenSpawn: 1
   - Config: {fileID: 11400000, guid: 07e0d685dfe481b438b51a79ffb18a2d, type: 2}
     Count: 0
     TimeBetweenSpawn: 0

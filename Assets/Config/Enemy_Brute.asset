@@ -15,6 +15,7 @@ MonoBehaviour:
   Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
   Material: {fileID: 2100000, guid: 71c8753baff58eb41987ecc6a909120b, type: 2}
   Health: 3
-  Speed: 5
+  Speed: 4
   Damage: 5
   TimeBetweenAttacks: 2
+  MoneyOnDeath: 0
