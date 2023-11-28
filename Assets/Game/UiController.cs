@@ -9,8 +9,10 @@ namespace Game
 		public GameObject MainMenuRoot;
 		public GameObject ShopRoot;
 		public GameObject GameOverRoot;
+		public GameObject GameStartRoot;
 		
 		public GameObject ShopScene3D;
+		public GameObject IntroScene3D;
 		
 		void Awake()
 		{
@@ -23,6 +25,8 @@ namespace Game
 		public void OnStartGame()
 		{
 			HideAll();
+			GameStartRoot.SetActive(true);
+			IntroScene3D.SetActive(true);
 			GameEvents.GameStarted.Dispatch();
 			Upgrades.Reset();
 		}
@@ -45,6 +49,7 @@ namespace Game
 			ShopRoot.SetActive(false);
 			GameOverRoot.SetActive(false);
 			ShopScene3D.SetActive(false);
+			GameStartRoot.SetActive(false);
 		}
 
 		void OnRoundEnded()

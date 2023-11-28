@@ -879,6 +879,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6049398902266054670}
   - component: {fileID: 6840267492446733574}
+  - component: {fileID: 7494633358543340161}
+  - component: {fileID: 537668841241268145}
   m_Layer: 0
   m_Name: Intro
   m_TagString: Untagged
@@ -917,6 +919,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6716030506981167369}
   m_CullTransparentMesh: 1
+--- !u!111 &7494633358543340161
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6716030506981167369}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 906fe248091e16f4ba0dbebbeca1ea22, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 906fe248091e16f4ba0dbebbeca1ea22, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!225 &537668841241268145
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6716030506981167369}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6974637165313045808
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +956,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1777495877563520778}
-  - component: {fileID: 8359888695123468540}
   m_Layer: 0
   m_Name: ConvoPanel
   m_TagString: Untagged
@@ -956,22 +985,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -183.455}
   m_SizeDelta: {x: 0, y: -366.91}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!111 &8359888695123468540
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6974637165313045808}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 906fe248091e16f4ba0dbebbeca1ea22, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 906fe248091e16f4ba0dbebbeca1ea22, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &7948340716169256854
 GameObject:
   m_ObjectHideFlags: 0
