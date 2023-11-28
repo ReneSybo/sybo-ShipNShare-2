@@ -1,6 +1,7 @@
 ﻿using System;
 using Game.Events;
 using UnityEngine;
+using AudioType = Game.Audio.AudioType;
 
 namespace Game.Player
 {
@@ -39,7 +40,6 @@ namespace Game.Player
 			_activeFading = false;
 			Gun1.SetActive(false);
 			Gun2.SetActive(false);
-			_transform.rotation = Quaternion.Euler(0, 0, 0);
 			enabled = true;
 		}
 
@@ -56,6 +56,8 @@ namespace Game.Player
 				float distanceToPlayer = (_transform.position - GlobalVariables.PlayerPos).sqrMagnitude;
 				if (distanceToPlayer <= TrashDistance)
 				{
+					GameEvents.PlayAudio.Dispatch(AudioType.HitCastle);
+					
 					_transform.rotation = Quaternion.Euler(0, 0, -180);
 					_activeChecking = false;
 					_activeFading = true;

@@ -2,6 +2,7 @@
 using Game.Events;
 using Game.Player;
 using UnityEngine;
+using AudioType = Game.Audio.AudioType;
 using Random = UnityEngine.Random;
 
 namespace Game.Enemies
@@ -142,10 +143,13 @@ namespace Game.Enemies
 
 		public void Hit(float damage)
 		{
+			GameEvents.PlayAudio.Dispatch(AudioType.EnemyHit);
+			
 			Health -= damage;
 			if (Health <= 0)
 			{
 				GameEvents.EnemyDied.Dispatch(this);
+				GameEvents.PlayAudio.Dispatch(AudioType.EnemyDeath);
 			}
 		}
 	}

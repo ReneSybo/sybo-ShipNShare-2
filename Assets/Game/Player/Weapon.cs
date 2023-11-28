@@ -1,6 +1,7 @@
 ﻿using Game.Enemies;
 using Game.Events;
 using UnityEngine;
+using AudioType = Game.Audio.AudioType;
 
 namespace Game.Player
 {
@@ -77,6 +78,7 @@ namespace Game.Player
 				if (closestEnemy != null)
 				{
 					ShootAt(closestEnemy.CurrentPosition);
+					GameEvents.PlayAudio.Dispatch(AudioType.WeaponShot);
 				}
 			}
 		}

@@ -71,6 +71,7 @@ namespace Game
 		{
 			HideAll();
 			GameEvents.RoundStarted.Dispatch();
+			HudRoot.SetActive(true);
 		}
 		
 		public void OnResetGame()
