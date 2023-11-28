@@ -91,7 +91,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TextureOverlay: 0.783
+    - _TextureOverlay: 1
     - _Tiling: 30
     - _UVSec: 0
     - _ZWrite: 1
