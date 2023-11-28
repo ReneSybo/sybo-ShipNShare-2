@@ -28,11 +28,16 @@ namespace Game.Player
 			
 			GameEvents.ProjectileSpawned.AddListener(OnProjectileSpawned);
 			GameEvents.PlayerHurt.AddListener(OnPlayerHurt);
-			GameEvents.GameStarted.AddListener(OnRoundStarted);
 			GameEvents.RoundStarted.AddListener(OnRoundStarted);
 			GameEvents.RoundOver.AddListener(OnRoundEnded);
+			GameEvents.CutsceneState.AddListener(OnCutsceneState);
 			
 			enabled = false;
+		}
+
+		void OnCutsceneState(bool active)
+		{
+			enabled = !active;
 		}
 
 		void OnRoundEnded()

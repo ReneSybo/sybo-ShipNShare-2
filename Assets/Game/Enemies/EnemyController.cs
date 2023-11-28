@@ -17,6 +17,7 @@ namespace Game.Enemies
 		public MeshRenderer Renderer;
 		public MeshFilter Filter;
 
+		public int MoneyOnDeath;
 		public float Health;
 		public Vector3 CurrentPosition;
 		public float HurtRadius = 1f;
@@ -73,6 +74,7 @@ namespace Game.Enemies
 		public void ApplyConfig(EnemyConfig config)
 		{
 			_config = config;
+			MoneyOnDeath = config.MoneyOnDeath;
 			Health = config.Health;
 			Filter.sharedMesh = config.Mesh;
 			Renderer.sharedMaterial = config.Material;

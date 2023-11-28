@@ -36,6 +36,7 @@ namespace Game
 			HideAll();
 			GameEvents.GameStarted.Dispatch();
 			Upgrades.Reset();
+			GameEvents.CutsceneState.Dispatch(false);
 		}
 
 		public void OnLeaveShop()

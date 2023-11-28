@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Game.Difficulty;
 using Game.Events;
+using Game.Money;
 using Game.Player;
 using UnityEngine;
 
@@ -12,9 +14,12 @@ namespace Game.Enemies
 		
 		public EnemySpawnPool EnemyPool;
 		public EnemyDeathSpawnPool DeathPool;
+		public MoneySpawnPool MoneyPool;
 
 		int _currentConfigIndex;
 		EnemyRound _currentRound;
+		
+		List<MoneyEntity> _activeMoney = new List<MoneyEntity>(100);
 		
 		void Awake()
 		{
@@ -24,9 +29,18 @@ namespace Game.Enemies
 			GameEvents.RoundStarted.AddListener(OnRoundStarted);
 			GameEvents.CastleTrashed.AddListener(OnRoundStarted);
 			GameEvents.EnemyDeathDone.AddListener(OnEnemyDeathDone);
+			GameEvents.MoneyGained.AddListener(OnMoneyGained);
 
 			enabled = false;
 			_currentConfigIndex = -1;
+		}
+
+		void OnMoneyGained(MoneyEntity money)
+		{
+			if (_activeMoney.Remove(money))
+			{
+				MoneyPool.ReturnEntity(money);
+			}
 		}
 
 		void OnRoundStarted()
@@ -45,6 +59,11 @@ namespace Game.Enemies
 			foreach (EnemyController enemyController in enemies)
 			{
 				EnemyPool.ReturnEntity(enemyController);
+			}
+
+			foreach (MoneyEntity entity in _activeMoney)
+			{
+				MoneyPool.ReturnEntity(entity);
 			}
 
 			_currentConfigIndex = -1;
@@ -85,6 +104,10 @@ namespace Game.Enemies
 
 			EnemyDeath enemyDeath = DeathPool.SpawnItem();
 			enemyDeath.CopyFrom(enemy);
+
+			MoneyEntity moneyEntity = MoneyPool.SpawnItem();
+			moneyEntity.Setup(enemy);
+			_activeMoney.Add(moneyEntity);
 		}
 		
 		void OnEnemyDeathDone(EnemyDeath death)

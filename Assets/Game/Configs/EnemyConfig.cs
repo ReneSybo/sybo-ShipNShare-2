@@ -14,5 +14,8 @@ namespace Game.Enemies
 		public float Speed;
 		public float Damage;
 		public float TimeBetweenAttacks;
+		
+		[Header("Drops")]
+		public int MoneyOnDeath;
 	}
 }

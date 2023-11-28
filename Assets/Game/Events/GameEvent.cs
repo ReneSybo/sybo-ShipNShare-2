@@ -1,5 +1,6 @@
 ﻿using System;
 using Game.Enemies;
+using Game.Money;
 using Game.Player;
 
 namespace Game.Events
@@ -7,6 +8,7 @@ namespace Game.Events
 	public static class GameEvents
 	{
 		public static readonly GameEvent PlayerHurt = new GameEvent();
+		public static readonly GameEvent<bool> CutsceneState = new GameEvent<bool>();
 		public static readonly GameEvent GameEnded = new GameEvent(); //Player died, show full screen "Game Over"
 		public static readonly GameEvent GameStarted = new GameEvent(); //Click "Let's do it!"
 		public static readonly GameEvent CastleTrashed = new GameEvent(); //The sand castle is ruined!
@@ -17,6 +19,7 @@ namespace Game.Events
 		public static readonly GameEvent<EnemyConfig> EnemySpawned = new GameEvent<EnemyConfig>();
 		public static readonly GameEvent<Projectile> ProjectileDespawned = new GameEvent<Projectile>();
 		public static readonly GameEvent<bool> ProjectileSpawned = new GameEvent<bool>();
+		public static readonly GameEvent<MoneyEntity> MoneyGained = new GameEvent<MoneyEntity>();
 	}
 	
 	public class GameEvent
