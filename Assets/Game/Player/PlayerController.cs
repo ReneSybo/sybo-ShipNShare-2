@@ -4,59 +4,88 @@ namespace Game.Player
 {
 	public class PlayerController : MonoBehaviour
 	{
-		public float Speed = 1f;
-		public float MaxSpeed = 10f;
-		public float SpeedDampening = 0.98f;
-		public float Epsilon = 0.001f;
-
-		public Vector2 CurrentSpeed = Vector2.zero;
+		static readonly int AnimationSpeed = Animator.StringToHash("Speed");
 		
+		public float Speed = 1f;
+		public float SpeedDampening = 0.98f;
 		public Transform PlayerMesh;
-
 		public Animator _animator;
 		
+		public Vector3 CurrentSpeed;
 		Transform _playerTransform;
+		Vector3 _currentMeshForward;
 
 		void Awake()
 		{
 			_playerTransform = transform;
+			_currentMeshForward = _playerTransform.forward;
 		}
 
 		void Update()
 		{
-			float horizontalMovement = Input.GetAxis("Horizontal");
-			float verticalMovement = Input.GetAxis("Vertical");
+			UpdateCurrentSpeed();
+			UpdatePlayerPosition();
+			UpdateCharacterMesh();
+		}
+
+		void UpdateCurrentSpeed()
+		{
+			Vector3 movement = GetMovement(out bool moved);
+			Vector3 movementToAdd = movement.normalized;
 			
 			CurrentSpeed *= SpeedDampening;
-			CurrentSpeed.x += horizontalMovement * Speed * GameTime.DeltaTime;
-			CurrentSpeed.y += verticalMovement * Speed * GameTime.DeltaTime;
-
-			if (Mathf.Abs(CurrentSpeed.x) <= Epsilon)
+			if (moved)
 			{
-				CurrentSpeed.x = 0;
-			}
-			
-			if (Mathf.Abs(CurrentSpeed.y) <= Epsilon)
-			{
+				CurrentSpeed.x += movementToAdd.x * Mathf.Abs(movement.x) * Speed * GameTime.DeltaTime;
 				CurrentSpeed.y = 0;
+				CurrentSpeed.z += movementToAdd.z * Mathf.Abs(movement.z) * Speed * GameTime.DeltaTime;
 			}
+		}
 
+		void UpdatePlayerPosition()
+		{
 			Vector3 currentPos = _playerTransform.localPosition;
 			currentPos.x += CurrentSpeed.x;
-			currentPos.z += CurrentSpeed.y;
+			currentPos.z += CurrentSpeed.z;
 			_playerTransform.localPosition = currentPos;
 			GlobalVariables.PlayerPos = currentPos;
-
+		}
+		
+		void UpdateCharacterMesh()
+		{
+			float currentSpeedMagnitude = CurrentSpeed.magnitude;
+			
 			// Setting animator values 
-			_animator.SetFloat("Speed", CurrentSpeed.magnitude);
+			_animator.SetFloat(AnimationSpeed, currentSpeedMagnitude);
 
 			// Only update direction when actually getting a new one /Baldwin
-			if(CurrentSpeed.magnitude > 0.01f)
+			if(Mathf.Abs(currentSpeedMagnitude) > 0.01f)
 			{
-				PlayerMesh.rotation = Quaternion.LookRotation(new Vector3(CurrentSpeed.x, 0, CurrentSpeed.y), Vector3.up);
+				_currentMeshForward = Vector3.Slerp(_currentMeshForward, CurrentSpeed.normalized, GameTime.DeltaTime * 10f);
+				PlayerMesh.forward = _currentMeshForward;
 			}
-			
+		}
 
+		Vector3 GetMovement(out bool moved)
+		{
+			Vector3 movementToAdd = Vector3.zero;
+			moved = false;
+			
+			float horizontalMovement = Input.GetAxis("Horizontal");
+			if (horizontalMovement != 0)
+			{
+				movementToAdd.x = horizontalMovement;
+				moved = true;
+			}
+
+			float verticalMovement = Input.GetAxis("Vertical");
+			if (verticalMovement != 0)
+			{
+				movementToAdd.z = verticalMovement;
+				moved = true;
+			}
+
+			return movementToAdd;
 		}
 	}
 }
