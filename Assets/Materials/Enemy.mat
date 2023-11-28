@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player
+  m_Name: Enemy
   m_Shader: {fileID: -6465566751694194690, guid: 838cce391d461e3419b1f4a1f5895906, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -38,13 +38,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Float: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Rim: 11.71
     - _RimStrength: 5
-    - _Roughness: 1
-    - _Shadeless: 0
-    - _TextureOverlay: 0
+    - _Roughness: 0.809
+    - _Shadeless: 0.334
+    - _TextureOverlay: 1
     - _Tiling: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}

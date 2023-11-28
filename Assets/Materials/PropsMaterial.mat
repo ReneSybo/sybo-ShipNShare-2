@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PropsMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 5628b9e0533602b45814f7133a1e46d4, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 838cce391d461e3419b1f4a1f5895906, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -88,6 +88,10 @@ Material:
     - _Parallax: 0.02
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Rim: 7.45
+    - _RimStrength: 2
+    - _Roughness: 0
+    - _Shadeless: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
