@@ -16,12 +16,13 @@ namespace Game.Enemies
 
 		public MeshRenderer Renderer;
 		public MeshFilter Filter;
-		
+
+		public float Health;
 		public Vector3 CurrentPosition;
 		public float HurtRadius = 1f;
-		public float Speed = 1f;
 		public float TimeBetweenOrientation = 0.1f;
-		public float TimeBetweenHurting = 0.5f;
+		
+		EnemyConfig _config;
 
 		void Awake()
 		{
@@ -70,6 +71,8 @@ namespace Game.Enemies
 
 		public void ApplyConfig(EnemyConfig config)
 		{
+			_config = config;
+			Health = config.Health;
 			Filter.sharedMesh = config.Mesh;
 			Renderer.sharedMaterial = config.Material;
 		}
@@ -88,7 +91,7 @@ namespace Game.Enemies
 
 			_pushDir = _pushDir * 0.95f;
 			
-			CurrentPosition += _currentDirection * Speed * GameTime.DeltaTime;
+			CurrentPosition += _currentDirection * _config.Speed * GameTime.DeltaTime;
 			CurrentPosition += _pushDir * GameTime.DeltaTime;
 			
 			_enemyTransform.localPosition = CurrentPosition;
@@ -98,8 +101,8 @@ namespace Game.Enemies
 				Vector3 distanceToPlayer = GlobalVariables.PlayerPos - CurrentPosition;
 				if (distanceToPlayer.sqrMagnitude <= HurtRadius)
 				{
-					_timeToHurt = TimeBetweenHurting;
-					GlobalVariables.PlayerHealth--;
+					_timeToHurt = _config.TimeBetweenAttacks;
+					GlobalVariables.PlayerHealth -= _config.Damage;
 					GameEvents.PlayerHurt.Dispatch();
 				}
 			}
@@ -132,9 +135,13 @@ namespace Game.Enemies
 			GlobalVariables.Enemies.Remove(this);
 		}
 
-		public void Hit()
+		public void Hit(float damage)
 		{
-			GameEvents.EnemyDied.Dispatch(this);
+			Health -= damage;
+			if (Health <= 0)
+			{
+				GameEvents.EnemyDied.Dispatch(this);
+			}
 		}
 	}
 }

@@ -7,6 +7,7 @@ namespace Game.Player
 {
 	public class Projectile : MonoBehaviour, ISpawnable
 	{
+		public float ProjectileDamage = 1f;
 		public float ProjectileSpeed = 1f;
 		public float Size = 1f;
 		public float LifeTime = 3f;
@@ -53,7 +54,7 @@ namespace Game.Player
 				float distance = new Vector2(enemy.CurrentPosition.x - _position.x, enemy.CurrentPosition.z - _position.z).sqrMagnitude;
 				if (distance < squareSize)
 				{
-					enemy.Hit();
+					enemy.Hit(ProjectileDamage);
 					GameEvents.ProjectileDespawned.Dispatch(this);
 					break;
 				}

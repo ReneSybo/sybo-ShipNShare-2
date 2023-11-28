@@ -261,8 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Renderer: {fileID: 61224610684482667}
   Filter: {fileID: 915431829066931859}
+  Health: 0
   CurrentPosition: {x: 0, y: 0, z: 0}
   HurtRadius: 1
-  Speed: 6
   TimeBetweenOrientation: 0.1
-  TimeBetweenHurting: 0.1
