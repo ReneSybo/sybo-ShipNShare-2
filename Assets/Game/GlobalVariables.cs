@@ -10,6 +10,7 @@ namespace Game.Player
 		[SerializeField] float _enemySpawnMax = 20f;
 		[SerializeField] float _avoidingRange = 1f;
 		[SerializeField] float _seperateFactor = 2f;
+		[SerializeField] float _playerAvoidFactor = 2f;
 		[SerializeField] float _playerStartHealth = 10;
 		
 		public static Vector3 PlayerPos;
@@ -17,6 +18,7 @@ namespace Game.Player
 		public static List<EnemyController> Enemies = new List<EnemyController>(100);
 		public static float AvoidingRange;
 		public static float SeperateFactor;
+		public static float PlayerAvoidFactor;
 		public static float PlayerHealth;
 		public static float PlayerStartHealth;
 		public static int Money;
@@ -34,6 +36,7 @@ namespace Game.Player
 			EnemySpawnDistances = new Vector2(_enemySpawnMin, _enemySpawnMax);
 			AvoidingRange = _avoidingRange;
 			SeperateFactor = _seperateFactor;
+			PlayerAvoidFactor = _playerAvoidFactor;
 		}
 		
 		void OnDrawGizmos()

@@ -18,4 +18,4 @@ MonoBehaviour:
   Speed: 4
   Damage: 5
   TimeBetweenAttacks: 2
-  MoneyOnDeath: 0
+  MoneyOnDeath: 2

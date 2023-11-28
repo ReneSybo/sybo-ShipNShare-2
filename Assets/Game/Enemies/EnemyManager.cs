@@ -105,9 +105,12 @@ namespace Game.Enemies
 			EnemyDeath enemyDeath = DeathPool.SpawnItem();
 			enemyDeath.CopyFrom(enemy);
 
-			MoneyEntity moneyEntity = MoneyPool.SpawnItem();
-			moneyEntity.Setup(enemy);
-			_activeMoney.Add(moneyEntity);
+			if (enemy.MoneyOnDeath > 0)
+			{
+				MoneyEntity moneyEntity = MoneyPool.SpawnItem();
+				moneyEntity.Setup(enemy);
+				_activeMoney.Add(moneyEntity);
+			}
 		}
 		
 		void OnEnemyDeathDone(EnemyDeath death)

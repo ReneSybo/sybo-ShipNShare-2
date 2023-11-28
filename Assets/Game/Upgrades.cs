@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Game.Events;
 using Game.Player;
 
 namespace Game
@@ -78,6 +79,9 @@ namespace Game
 			{
 				CurrentUpgradeIndex++;
 				CurrentValue += UpgradeIncrement;
+
+				GlobalVariables.Money -= UpgradeCost;
+				GameEvents.MoneySpend.Dispatch();
 			}
 		}
 

@@ -8,10 +8,9 @@ namespace Game.Money
 {
 	public class MoneyEntity : MonoBehaviour
 	{
-		[NonSerialized] public int Value;
-		
 		public float PickupDistance;
 
+		int _value;
 		Transform _transform;
 
 		void Awake()
@@ -24,9 +23,7 @@ namespace Game.Money
 			float distanceToPlayer = (_transform.position - GlobalVariables.PlayerPos).sqrMagnitude;
 			if (distanceToPlayer <= PickupDistance)
 			{
-				_transform.rotation = Quaternion.Euler(0, 0, -180);
-				enabled = false;
-				
+				GlobalVariables.Money += _value;
 				GameEvents.MoneyGained.Dispatch(this);
 			}
 		}
@@ -34,7 +31,7 @@ namespace Game.Money
 		public void Setup(EnemyController enemy)
 		{
 			_transform.position = enemy.CurrentPosition;
-			Value = enemy.MoneyOnDeath;
+			_value = enemy.MoneyOnDeath;
 		}
 	}
 }
