@@ -31,6 +31,13 @@ namespace Game
 			Upgrades.Reset();
 		}
 
+		public void OnSkipCutscene()
+		{
+			HideAll();
+			GameEvents.GameStarted.Dispatch();
+			Upgrades.Reset();
+		}
+
 		public void OnLeaveShop()
 		{
 			HideAll();
