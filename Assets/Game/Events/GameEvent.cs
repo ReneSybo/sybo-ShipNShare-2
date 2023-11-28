@@ -9,6 +9,7 @@ namespace Game.Events
 		public static readonly GameEvent PlayerHurt = new GameEvent();
 		public static readonly GameEvent GameEnded = new GameEvent(); //Player died, show full screen "Game Over"
 		public static readonly GameEvent GameStarted = new GameEvent(); //Click "Let's do it!"
+		public static readonly GameEvent CastleTrashed = new GameEvent(); //The sand castle is ruined!
 		public static readonly GameEvent RoundOver = new GameEvent(); //All enemies dead
 		public static readonly GameEvent RoundStarted = new GameEvent(); //Left the shop screen
 		public static readonly GameEvent<EnemyController> EnemyDied = new GameEvent<EnemyController>();

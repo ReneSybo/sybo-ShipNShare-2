@@ -21,7 +21,7 @@ namespace Game.Enemies
 			GameEvents.EnemySpawned.AddListener(OnEnemySpawned);
 			GameEvents.GameEnded.AddListener(OnGameEnded);
 			GameEvents.RoundStarted.AddListener(OnRoundStarted);
-			GameEvents.GameStarted.AddListener(OnRoundStarted);
+			GameEvents.CastleTrashed.AddListener(OnRoundStarted);
 
 			enabled = false;
 			_currentConfigIndex = -1;
@@ -71,7 +71,7 @@ namespace Game.Enemies
 				_currentRound.Update();
 				if (GlobalVariables.Enemies.Count == 0 && _currentRound.Completed())
 				{
-					StartNextRound();
+					GameEvents.RoundOver.Dispatch();
 				}
 			}
 		}

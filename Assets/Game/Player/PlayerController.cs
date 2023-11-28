@@ -30,7 +30,13 @@ namespace Game.Player
 			GameEvents.PlayerHurt.AddListener(OnPlayerHurt);
 			GameEvents.GameStarted.AddListener(OnRoundStarted);
 			GameEvents.RoundStarted.AddListener(OnRoundStarted);
+			GameEvents.RoundOver.AddListener(OnRoundEnded);
 			
+			enabled = false;
+		}
+
+		void OnRoundEnded()
+		{
 			enabled = false;
 		}
 

@@ -413,7 +413,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 496713159127021495}
+      - m_Target: {fileID: 1583786604892943004}
         m_TargetAssemblyTypeName: Game.UiController, Assembly-CSharp
         m_MethodName: OnLeaveShop
         m_Mode: 1
@@ -1439,7 +1439,6 @@ GameObject:
   - component: {fileID: 1829687340195415435}
   - component: {fileID: 1829687340195415436}
   - component: {fileID: 5198882523029477398}
-  - component: {fileID: 496713159127021495}
   - component: {fileID: 1829687341066501542}
   - component: {fileID: 8634247755034666676}
   m_Layer: 0
@@ -1516,21 +1515,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!114 &496713159127021495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829687340195415437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4357c65f93441728fca3d844a99760b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainMenuRoot: {fileID: 6970099793416797441}
-  ShopRoot: {fileID: 1829687341193021434}
-  GameOverRoot: {fileID: 4607870460873954347}
 --- !u!225 &1829687341066501542
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4637,7 +4621,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 496713159127021495}
+      - m_Target: {fileID: 1583786604892943004}
         m_TargetAssemblyTypeName: Game.UiController, Assembly-CSharp
         m_MethodName: OnStartGame
         m_Mode: 1
@@ -5095,7 +5079,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 496713159127021495}
+      - m_Target: {fileID: 1583786604892943004}
         m_TargetAssemblyTypeName: Game.UiController, Assembly-CSharp
         m_MethodName: OnResetGame
         m_Mode: 1
@@ -5329,3 +5313,4 @@ MonoBehaviour:
   MainMenuRoot: {fileID: 6970099793416797441}
   ShopRoot: {fileID: 1829687341193021434}
   GameOverRoot: {fileID: 4607870460873954347}
+  ShopScene3D: {fileID: 0}

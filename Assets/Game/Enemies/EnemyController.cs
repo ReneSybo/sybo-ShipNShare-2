@@ -30,6 +30,7 @@ namespace Game.Enemies
 			
 			GameEvents.GameEnded.AddListener(OnGameEnded);
 			GameEvents.RoundStarted.AddListener(OnRoundStarted);
+			GameEvents.CastleTrashed.AddListener(OnRoundStarted);
 		}
 
 		void OnRoundStarted()
