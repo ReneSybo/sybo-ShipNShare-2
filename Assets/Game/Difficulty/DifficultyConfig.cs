@@ -16,6 +16,6 @@ namespace Game.Difficulty
 	{
 		public EnemyConfig Config;
 		public int Count;
-		public int TimeBetweenSpawn;
+		public float TimeBetweenSpawn;
 	}
 }

@@ -26,6 +26,19 @@ namespace Game.Enemies
 		void Awake()
 		{
 			_enemyTransform = transform;
+			
+			GameEvents.GameEnded.AddListener(OnGameEnded);
+			GameEvents.GameStarted.AddListener(OnGameStarted);
+		}
+
+		void OnGameStarted()
+		{
+			enabled = true;
+		}
+
+		void OnGameEnded()
+		{
+			enabled = false;
 		}
 
 		void OnDrawGizmosSelected()
@@ -86,6 +99,7 @@ namespace Game.Enemies
 				if (distanceToPlayer.sqrMagnitude <= HurtRadius)
 				{
 					_timeToHurt = TimeBetweenHurting;
+					GlobalVariables.PlayerHealth--;
 					GameEvents.PlayerHurt.Dispatch();
 				}
 			}

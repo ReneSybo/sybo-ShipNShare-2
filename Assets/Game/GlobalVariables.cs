@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Game.Enemies;
+using Game.Events;
 using UnityEngine;
 
 namespace Game.Player
@@ -10,18 +12,47 @@ namespace Game.Player
 		[SerializeField] float _enemySpawnMax = 20f;
 		[SerializeField] float _avoidingRange = 1f;
 		[SerializeField] float _seperateFactor = 2f;
+		[SerializeField] float _playerStartHealth = 10;
 		
 		public static Vector3 PlayerPos;
 		public static Vector2 EnemySpawnDistances;
 		public static List<EnemyController> Enemies = new List<EnemyController>(100);
 		public static float AvoidingRange;
 		public static float SeperateFactor;
+		public static float PlayerHealth;
+		public static float PlayerStartHealth;
 		
+		bool _playing;
+
+		void Awake()
+		{
+			PlayerHealth = _playerStartHealth;
+			
+			GameEvents.GameStarted.AddListener(OnGameStart);
+			GameEvents.GameEnded.AddListener(OnGameEnd);
+		}
+
+		void OnGameEnd()
+		{
+			_playing = false;
+		}
+
+		void OnGameStart()
+		{
+			_playing = true;
+		}
+
 		void Update()
 		{
+			PlayerStartHealth = _playerStartHealth;
 			EnemySpawnDistances = new Vector2(_enemySpawnMin, _enemySpawnMax);
 			AvoidingRange = _avoidingRange;
 			SeperateFactor = _seperateFactor;
+
+			if (!_playing && Input.GetKeyDown(KeyCode.Space))
+			{
+				GameEvents.GameStarted.Dispatch();
+			}
 		}
 		
 		void OnDrawGizmos()

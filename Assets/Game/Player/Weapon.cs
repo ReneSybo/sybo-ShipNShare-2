@@ -1,5 +1,4 @@
-﻿using System;
-using Game.Enemies;
+﻿using Game.Enemies;
 using Game.Events;
 using UnityEngine;
 
@@ -20,6 +19,18 @@ namespace Game.Player
 		void Awake()
 		{
 			GameEvents.ProjectileDespawned.AddListener(OnProjectileDespawn);
+			GameEvents.GameEnded.AddListener(OnGameEnded);
+			GameEvents.GameStarted.AddListener(OnGameStarted);
+		}
+
+		void OnGameStarted()
+		{
+			enabled = true;
+		}
+
+		void OnGameEnded()
+		{
+			enabled = false;
 		}
 
 		void OnDrawGizmos()

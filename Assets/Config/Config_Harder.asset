@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c8dd94e99c452d8f36c48d723119a4, type: 3}
+  m_Name: Config_Harder
+  m_EditorClassIdentifier: 
+  Compositions:
+  - Config: {fileID: 11400000, guid: 88923f64301756644b59a98a487a6ff7, type: 2}
+    Count: 20
+    TimeBetweenSpawn: 0.5
+  - Config: {fileID: 11400000, guid: 07e0d685dfe481b438b51a79ffb18a2d, type: 2}
+    Count: 8
+    TimeBetweenSpawn: 0.2

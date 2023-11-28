@@ -374,7 +374,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.41962394, y: 0, z: 0, w: 0.90769804}
-  m_LocalPosition: {x: 0, y: 25.85351, z: -19.434944}
+  m_LocalPosition: {x: 0, y: 15.235673, z: -12.95663}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -637,6 +637,7 @@ MonoBehaviour:
   _enemySpawnMax: 50
   _avoidingRange: 1
   _seperateFactor: 2
+  _playerStartHealth: 10
 --- !u!1 &2008969497
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Configs:
   - {fileID: 11400000, guid: 9f01f18f84e905d40ae387cd89654554, type: 2}
+  - {fileID: 11400000, guid: 77b32823ac151a948b516e3feb676957, type: 2}
   EnemyPool: {fileID: 2008969500}
   SpawnAmount: 100
   AutoRespawn: 0
@@ -1242,10 +1244,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 891834678490849615, guid: b668a9532d12bca44b86de220717d4f2, type: 3}
-      propertyPath: Pool
-      value: 
-      objectReference: {fileID: 1179139677}
-    - target: {fileID: 5172347903076632434, guid: b668a9532d12bca44b86de220717d4f2, type: 3}
       propertyPath: Pool
       value: 
       objectReference: {fileID: 1179139677}

@@ -21,6 +21,18 @@ namespace Game.Enemies
 		{
 			GameEvents.EnemyDied.AddListener(OnEnemyDied);
 			GameEvents.EnemySpawned.AddListener(OnEnemySpawned);
+			GameEvents.GameEnded.AddListener(OnGameEnded);
+			GameEvents.GameStarted.AddListener(OnGameStarted);
+		}
+
+		void OnGameStarted()
+		{
+			enabled = true;
+		}
+
+		void OnGameEnded()
+		{
+			enabled = false;
 		}
 
 		void OnEnemySpawned(EnemyConfig config)

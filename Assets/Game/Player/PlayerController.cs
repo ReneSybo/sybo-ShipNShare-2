@@ -26,6 +26,24 @@ namespace Game.Player
 			_currentMeshForward = _playerTransform.forward;
 			
 			GameEvents.ProjectileSpawned.AddListener(OnProjectileSpawned);
+			GameEvents.PlayerHurt.AddListener(OnPlayerHurt);
+			GameEvents.GameStarted.AddListener(OnGameStarted);
+		}
+
+		void OnGameStarted()
+		{
+			enabled = true;
+			GlobalVariables.PlayerHealth = GlobalVariables.PlayerStartHealth;
+		}
+
+		void OnPlayerHurt()
+		{
+			if (GlobalVariables.PlayerHealth <= 0)
+			{
+				GameEvents.GameEnded.Dispatch();
+				_animator.SetFloat(AnimationSpeed, 0);
+				enabled = false;
+			}
 		}
 
 		void OnProjectileSpawned(bool fromPrimary)
