@@ -14,6 +14,9 @@ namespace Game.Enemies
 		float _timeToHurt;
 		Vector3 _pushDir;
 
+		public MeshRenderer Renderer;
+		public MeshFilter Filter;
+		
 		public Vector3 CurrentPosition;
 		public float HurtRadius = 1f;
 		public float Speed = 1f;
@@ -50,6 +53,12 @@ namespace Game.Enemies
 			_currentDirection = _enemyTransform.forward;
 			
 			GlobalVariables.Enemies.Add(this);
+		}
+
+		public void ApplyConfig(EnemyConfig config)
+		{
+			Filter.sharedMesh = config.Mesh;
+			Renderer.sharedMaterial = config.Material;
 		}
 
 		void Update()

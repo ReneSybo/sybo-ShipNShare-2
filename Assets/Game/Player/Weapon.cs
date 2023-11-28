@@ -1,4 +1,5 @@
-﻿using Game.Enemies;
+﻿using System;
+using Game.Enemies;
 using Game.Events;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Game.Player
 		public Transform PrimaryShotpoint;
 		public Transform SecondaryShotPoint;
 		public Vector3 CurrentShotDirection;
+		public float ShootingDistance;
 
 		bool _shootingFromPrimary;
 		public float ShotSpeed = 0.5f;
@@ -18,6 +20,12 @@ namespace Game.Player
 		void Awake()
 		{
 			GameEvents.ProjectileDespawned.AddListener(OnProjectileDespawn);
+		}
+
+		void OnDrawGizmos()
+		{
+			Gizmos.color = Color.blue;
+			Gizmos.DrawWireSphere(transform.position, ShootingDistance);
 		}
 
 		void OnProjectileDespawn(Projectile projectile)
@@ -51,9 +59,12 @@ namespace Game.Player
 				}
 			}
 
-			if (closestEnemy != null)
+			if (closestDistance <= ShootingDistance * ShootingDistance)
 			{
-				ShootAt(closestEnemy.CurrentPosition);
+				if (closestEnemy != null)
+				{
+					ShootAt(closestEnemy.CurrentPosition);
+				}
 			}
 		}
 
