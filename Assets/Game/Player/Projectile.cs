@@ -54,7 +54,7 @@ namespace Game.Player
 				float distance = new Vector2(enemy.CurrentPosition.x - _position.x, enemy.CurrentPosition.z - _position.z).sqrMagnitude;
 				if (distance < squareSize)
 				{
-					enemy.Hit(ProjectileDamage);
+					enemy.Hit(ProjectileDamage + Upgrades.Instance.GetValue(UpgradeType.Damage));
 					GameEvents.ProjectileDespawned.Dispatch(this);
 					break;
 				}

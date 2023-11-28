@@ -19,6 +19,7 @@ namespace Game.Player
 		public static float SeperateFactor;
 		public static float PlayerHealth;
 		public static float PlayerStartHealth;
+		public static int Money;
 		
 		bool _playing;
 

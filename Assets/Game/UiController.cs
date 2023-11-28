@@ -24,6 +24,7 @@ namespace Game
 		{
 			HideAll();
 			GameEvents.GameStarted.Dispatch();
+			Upgrades.Reset();
 		}
 
 		public void OnLeaveShop()

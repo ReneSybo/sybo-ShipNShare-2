@@ -21,6 +21,8 @@ namespace Game.Player
 			GameEvents.ProjectileDespawned.AddListener(OnProjectileDespawn);
 			GameEvents.GameEnded.AddListener(OnGameEnded);
 			GameEvents.RoundStarted.AddListener(OnRoundStarted);
+			GameEvents.CastleTrashed.AddListener(OnRoundStarted);
+			enabled = false;
 		}
 
 		void OnRoundStarted()
@@ -50,7 +52,7 @@ namespace Game.Player
 			if (_timeToShoot <= 0)
 			{
 				TryShoot();
-				_timeToShoot = ShotSpeed;
+				_timeToShoot = ShotSpeed - Upgrades.Instance.GetValue(UpgradeType.AttackSpeed);
 			}
 		}
 
