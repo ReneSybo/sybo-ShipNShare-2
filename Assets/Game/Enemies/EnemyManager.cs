@@ -20,12 +20,17 @@ namespace Game.Enemies
 			GameEvents.EnemyDied.AddListener(OnEnemyDied);
 			GameEvents.EnemySpawned.AddListener(OnEnemySpawned);
 			GameEvents.GameEnded.AddListener(OnGameEnded);
-			GameEvents.GameStarted.AddListener(OnGameStarted);
+			GameEvents.RoundStarted.AddListener(OnRoundStarted);
+			GameEvents.GameStarted.AddListener(OnRoundStarted);
+
+			enabled = false;
+			_currentConfigIndex = -1;
 		}
 
-		void OnGameStarted()
+		void OnRoundStarted()
 		{
 			enabled = true;
+			StartNextRound();
 		}
 
 		void OnGameEnded()
@@ -39,18 +44,14 @@ namespace Game.Enemies
 			{
 				EnemyPool.ReturnEntity(enemyController);
 			}
+
+			_currentConfigIndex = -1;
 		}
 
 		void OnEnemySpawned(EnemyConfig config)
 		{
 			EnemyController enemy = EnemyPool.SpawnItem();
 			enemy.ApplyConfig(config);
-		}
-
-		void Start()
-		{
-			_currentConfigIndex = -1;
-			StartNextRound();
 		}
 
 		void StartNextRound()

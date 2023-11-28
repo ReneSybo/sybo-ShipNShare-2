@@ -10,6 +10,7 @@ namespace Game.Player
 		void Awake()
 		{
 			GameEvents.PlayerHurt.AddListener(OnUpdateHealth);
+			GameEvents.RoundStarted.AddListener(OnUpdateHealth);
 			GameEvents.GameStarted.AddListener(OnUpdateHealth);
 		}
 

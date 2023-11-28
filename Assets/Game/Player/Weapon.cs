@@ -20,10 +20,10 @@ namespace Game.Player
 		{
 			GameEvents.ProjectileDespawned.AddListener(OnProjectileDespawn);
 			GameEvents.GameEnded.AddListener(OnGameEnded);
-			GameEvents.GameStarted.AddListener(OnGameStarted);
+			GameEvents.RoundStarted.AddListener(OnRoundStarted);
 		}
 
-		void OnGameStarted()
+		void OnRoundStarted()
 		{
 			enabled = true;
 		}

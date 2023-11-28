@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Game.Enemies;
-using Game.Events;
 using UnityEngine;
 
 namespace Game.Player
@@ -27,32 +25,14 @@ namespace Game.Player
 		void Awake()
 		{
 			PlayerHealth = _playerStartHealth;
-			
-			GameEvents.GameStarted.AddListener(OnGameStart);
-			GameEvents.GameEnded.AddListener(OnGameEnd);
 		}
-
-		void OnGameEnd()
-		{
-			_playing = false;
-		}
-
-		void OnGameStart()
-		{
-			_playing = true;
-		}
-
+		
 		void Update()
 		{
 			PlayerStartHealth = _playerStartHealth;
 			EnemySpawnDistances = new Vector2(_enemySpawnMin, _enemySpawnMax);
 			AvoidingRange = _avoidingRange;
 			SeperateFactor = _seperateFactor;
-
-			if (!_playing && Input.GetKeyDown(KeyCode.Space))
-			{
-				GameEvents.GameStarted.Dispatch();
-			}
 		}
 		
 		void OnDrawGizmos()

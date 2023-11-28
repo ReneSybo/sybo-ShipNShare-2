@@ -29,10 +29,10 @@ namespace Game.Enemies
 			_enemyTransform = transform;
 			
 			GameEvents.GameEnded.AddListener(OnGameEnded);
-			GameEvents.GameStarted.AddListener(OnGameStarted);
+			GameEvents.RoundStarted.AddListener(OnRoundStarted);
 		}
 
-		void OnGameStarted()
+		void OnRoundStarted()
 		{
 			enabled = true;
 		}

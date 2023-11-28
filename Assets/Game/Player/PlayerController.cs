@@ -28,10 +28,13 @@ namespace Game.Player
 			
 			GameEvents.ProjectileSpawned.AddListener(OnProjectileSpawned);
 			GameEvents.PlayerHurt.AddListener(OnPlayerHurt);
-			GameEvents.GameStarted.AddListener(OnGameStarted);
+			GameEvents.GameStarted.AddListener(OnRoundStarted);
+			GameEvents.RoundStarted.AddListener(OnRoundStarted);
+			
+			enabled = false;
 		}
 
-		void OnGameStarted()
+		void OnRoundStarted()
 		{
 			enabled = true;
 		}
