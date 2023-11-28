@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UpperBodyMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/Hips
+    m_Weight: 0
+  - m_Path: Armature/Hips/L_UpLeg
+    m_Weight: 0
+  - m_Path: Armature/Hips/L_UpLeg/L_Leg
+    m_Weight: 0
+  - m_Path: Armature/Hips/L_UpLeg/L_Leg/L_Foot
+    m_Weight: 0
+  - m_Path: Armature/Hips/L_UpLeg/L_Leg/L_Foot/L_ToeBase
+    m_Weight: 0
+  - m_Path: Armature/Hips/L_UpLeg/L_Leg/L_Foot/L_ToeBase/L_Toe_End
+    m_Weight: 0
+  - m_Path: Armature/Hips/L_UpLeg/L_Leg/L_Foot/L_ToeBase/L_Toe_End/L_Toe_End_end
+    m_Weight: 0
+  - m_Path: Armature/Hips/R_UpLeg
+    m_Weight: 0
+  - m_Path: Armature/Hips/R_UpLeg/R_Leg
+    m_Weight: 0
+  - m_Path: Armature/Hips/R_UpLeg/R_Leg/R_Foot
+    m_Weight: 0
+  - m_Path: Armature/Hips/R_UpLeg/R_Leg/R_Foot/R_ToeBase
+    m_Weight: 0
+  - m_Path: Armature/Hips/R_UpLeg/R_Leg/R_Foot/R_ToeBase/R_Toe_End
+    m_Weight: 0
+  - m_Path: Armature/Hips/R_UpLeg/R_Leg/R_Foot/R_ToeBase/R_Toe_End/R_Toe_End_end
+    m_Weight: 0
+  - m_Path: Armature/Hips/Spine
+    m_Weight: 0
+  - m_Path: Armature/Hips/Spine/Spine1
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2/L_Shoulder
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2/L_Shoulder/L_Arm
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2/L_Shoulder/L_Arm/L_ForeArm
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2/L_Shoulder/L_Arm/L_ForeArm/L_Hand
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2/L_Shoulder/L_Arm/L_ForeArm/L_Hand/L_Hand_end
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2/Neck
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2/Neck/Head
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2/Neck/Head/HeadTop_End
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2/Neck/Head/HeadTop_End/HeadTop_End_end
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2/R_Shoulder
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2/R_Shoulder/R_Arm
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2/R_Shoulder/R_Arm/R_ForeArm
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2/R_Shoulder/R_Arm/R_ForeArm/R_Hand
+    m_Weight: 1
+  - m_Path: Armature/Hips/Spine/Spine1/Spine2/R_Shoulder/R_Arm/R_ForeArm/R_Hand/R_Hand_end
+    m_Weight: 1
+  - m_Path: ToughGuy
+    m_Weight: 0
