@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1580312947}
-  Distance: 20
+  Distance: 17
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
