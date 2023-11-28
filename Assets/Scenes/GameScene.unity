@@ -537,7 +537,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrashDistance: 1.5
+  TextMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   TutorialText: {fileID: 1095932071}
+  TutorialArrow: {fileID: 1361734750}
   Gun1: {fileID: 121903447}
   Gun2: {fileID: 190320136}
 --- !u!23 &773252654
@@ -1531,6 +1533,7 @@ MonoBehaviour:
   _enemySpawnMax: 32.7
   _avoidingRange: 1
   _seperateFactor: 2
+  _playerAvoidFactor: 2
   _playerStartHealth: 10
 --- !u!1 &1977380237
 GameObject:
@@ -2406,6 +2409,10 @@ PrefabInstance:
       propertyPath: Pool
       value: 
       objectReference: {fileID: 1179139677}
+    - target: {fileID: 8176825626424921714, guid: b668a9532d12bca44b86de220717d4f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8356981497302008640, guid: b668a9532d12bca44b86de220717d4f2, type: 3}
       propertyPath: m_Name
       value: Player
