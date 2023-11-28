@@ -7,6 +7,8 @@ namespace Game.Player
 	public class SandCastle : MonoBehaviour
 	{
 		public float TrashDistance;
+
+		public GameObject TutorialText;
 		
 		Transform _transform;
 
@@ -20,6 +22,7 @@ namespace Game.Player
 
 		void OnGameStart()
 		{
+			TutorialText.SetActive(true);
 			_transform.rotation = Quaternion.Euler(0, 0, 0);
 			enabled = true;
 		}
@@ -37,6 +40,7 @@ namespace Game.Player
 			{
 				_transform.rotation = Quaternion.Euler(0, 0, -180);
 				enabled = false;
+				TutorialText.SetActive(false);
 				
 				GameEvents.CastleTrashed.Dispatch();
 			}
