@@ -15,7 +15,8 @@ namespace Game.Player
 		public Transform PlayerMesh;
 		public Animator _animator;
 		public Weapon Weapon;
-		
+
+		float _upperBodyLayer;
 		public Vector3 CurrentSpeed;
 		Transform _playerTransform;
 		Vector3 _currentMeshForward;
@@ -26,10 +27,33 @@ namespace Game.Player
 			_currentMeshForward = _playerTransform.forward;
 			
 			GameEvents.ProjectileSpawned.AddListener(OnProjectileSpawned);
+			GameEvents.PlayerHurt.AddListener(OnPlayerHurt);
+			GameEvents.GameStarted.AddListener(OnGameStarted);
+		}
+
+		void OnGameStarted()
+		{
+			enabled = true;
+		}
+
+		void OnPlayerHurt()
+		{
+			if (GlobalVariables.PlayerHealth <= 0)
+			{
+				GameEvents.GameEnded.Dispatch();
+				_animator.SetFloat(AnimationSpeed, 0);
+				GlobalVariables.PlayerHealth = GlobalVariables.PlayerStartHealth;
+				enabled = false;
+				
+				_playerTransform.localPosition = Vector3.zero;
+				_currentMeshForward = Vector3.forward;
+				CurrentSpeed = Vector3.zero;
+			}
 		}
 
 		void OnProjectileSpawned(bool fromPrimary)
 		{
+			_upperBodyLayer = 1f;
 			_animator.SetTrigger(fromPrimary ? AnimationShotPrimary : AnimationShotSecondary);
 		}
 
@@ -38,7 +62,14 @@ namespace Game.Player
 			UpdateCurrentSpeed();
 			UpdatePlayerPosition();
 			UpdateCharacterMesh();
+
+			_upperBodyLayer -= GameTime.DeltaTime * 0.5f;
+			if (_upperBodyLayer < 0)
+			{
+				_upperBodyLayer = 0;
+			}
 			
+			_animator.SetLayerWeight(1, _upperBodyLayer);
 			_animator.SetFloat(AnimationDirection, Vector3.SignedAngle(Weapon.CurrentShotDirection, _currentMeshForward, Vector3.up));
 		}
 
