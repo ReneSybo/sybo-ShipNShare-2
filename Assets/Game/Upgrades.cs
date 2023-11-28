@@ -14,7 +14,7 @@ namespace Game
 
 		Dictionary<UpgradeType, UpgradeState> _dictionary;
 
-		public Upgrades()
+		Upgrades()
 		{
 			_dictionary = new Dictionary<UpgradeType, UpgradeState>();
 			_dictionary[UpgradeType.Damage] = new UpgradeState(10, 0.2f, 10 * 0);

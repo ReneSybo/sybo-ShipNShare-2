@@ -11,6 +11,7 @@ namespace Game.Enemies
 		public DifficultyConfig[] Configs;
 		
 		public EnemySpawnPool EnemyPool;
+		public EnemyDeathSpawnPool DeathPool;
 
 		int _currentConfigIndex;
 		EnemyRound _currentRound;
@@ -22,6 +23,7 @@ namespace Game.Enemies
 			GameEvents.GameEnded.AddListener(OnGameEnded);
 			GameEvents.RoundStarted.AddListener(OnRoundStarted);
 			GameEvents.CastleTrashed.AddListener(OnRoundStarted);
+			GameEvents.EnemyDeathDone.AddListener(OnEnemyDeathDone);
 
 			enabled = false;
 			_currentConfigIndex = -1;
@@ -80,6 +82,14 @@ namespace Game.Enemies
 		void OnEnemyDied(EnemyController enemy)
 		{
 			EnemyPool.ReturnEntity(enemy);
+
+			EnemyDeath enemyDeath = DeathPool.SpawnItem();
+			enemyDeath.CopyFrom(enemy);
+		}
+		
+		void OnEnemyDeathDone(EnemyDeath death)
+		{
+			DeathPool.ReturnEntity(death);
 		}
 	}
 
