@@ -21,7 +21,7 @@ namespace Game.Enemies
 			GameEvents.EnemySpawned.AddListener(OnEnemySpawned);
 			GameEvents.GameEnded.AddListener(OnGameEnded);
 			GameEvents.RoundStarted.AddListener(OnRoundStarted);
-			GameEvents.GameStarted.AddListener(OnRoundStarted);
+			GameEvents.CastleTrashed.AddListener(OnRoundStarted);
 
 			enabled = false;
 			_currentConfigIndex = -1;
