@@ -19,6 +19,7 @@ namespace Game
 		
 		public GameObject ShopScene3D;
 		public GameObject IntroScene3D;
+		public GameObject MenuScene3D;
 		
 		void Awake()
 		{
@@ -77,6 +78,7 @@ namespace Game
 			HideAll();
 			MainMenuRoot.SetActive(true);
 			UpdateMoneyText();
+			MenuScene3D.SetActive(true);
 		}
 
 		void HideAll()
@@ -88,6 +90,7 @@ namespace Game
 			GameStartRoot.SetActive(false);
 			IntroScene3D.SetActive(false);
 			HudRoot.SetActive(false);
+			MenuScene3D.SetActive(false);
 		}
 
 		void OnRoundEnded()

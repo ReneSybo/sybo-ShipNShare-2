@@ -13,6 +13,8 @@ namespace Game.Player
 
 		public GameObject TutorialText;
 		public GameObject TutorialArrow;
+		public GameObject Gun1;
+		public GameObject Gun2;
 		
 		Transform _transform;
 		bool _activeChecking;
@@ -35,6 +37,10 @@ namespace Game.Player
 			TutorialText.SetActive(true);
 			_activeChecking = true;
 			_activeFading = false;
+			Gun1.SetActive(false);
+			Gun2.SetActive(false);
+			_transform.rotation = Quaternion.Euler(0, 0, 0);
+			enabled = true;
 		}
 
 		void OnDrawGizmosSelected()
@@ -54,6 +60,9 @@ namespace Game.Player
 					_activeChecking = false;
 					_activeFading = true;
 					TutorialArrow.SetActive(false);
+
+					Gun1.SetActive(true);
+					Gun2.SetActive(true);
 
 					_currentFadeValue = 0f;
 					GameEvents.CastleTrashed.Dispatch();
