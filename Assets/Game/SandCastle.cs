@@ -9,6 +9,8 @@ namespace Game.Player
 		public float TrashDistance;
 
 		public GameObject TutorialText;
+		public GameObject Gun1;
+		public GameObject Gun2;
 		
 		Transform _transform;
 
@@ -23,6 +25,8 @@ namespace Game.Player
 		void OnGameStart()
 		{
 			TutorialText.SetActive(true);
+			Gun1.SetActive(false);
+			Gun2.SetActive(false);
 			_transform.rotation = Quaternion.Euler(0, 0, 0);
 			enabled = true;
 		}
@@ -41,6 +45,8 @@ namespace Game.Player
 				_transform.rotation = Quaternion.Euler(0, 0, -180);
 				enabled = false;
 				TutorialText.SetActive(false);
+				Gun1.SetActive(true);
+				Gun2.SetActive(true);
 				
 				GameEvents.CastleTrashed.Dispatch();
 			}
