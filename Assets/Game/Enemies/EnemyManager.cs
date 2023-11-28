@@ -11,8 +11,6 @@ namespace Game.Enemies
 		public DifficultyConfig[] Configs;
 		
 		public EnemySpawnPool EnemyPool;
-		public int SpawnAmount = 100;
-		public bool AutoRespawn = false;
 
 		int _currentConfigIndex;
 		EnemyRound _currentRound;
@@ -33,6 +31,14 @@ namespace Game.Enemies
 		void OnGameEnded()
 		{
 			enabled = false;
+
+			EnemyController[] enemies = GlobalVariables.Enemies.ToArray();
+			GlobalVariables.Enemies.Clear();
+			
+			foreach (EnemyController enemyController in enemies)
+			{
+				EnemyPool.ReturnEntity(enemyController);
+			}
 		}
 
 		void OnEnemySpawned(EnemyConfig config)
@@ -72,11 +78,6 @@ namespace Game.Enemies
 		void OnEnemyDied(EnemyController enemy)
 		{
 			EnemyPool.ReturnEntity(enemy);
-			
-			if (AutoRespawn)
-			{
-				EnemyPool.SpawnItem();
-			}
 		}
 	}
 
