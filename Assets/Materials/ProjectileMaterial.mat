@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ProjectileMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 5628b9e0533602b45814f7133a1e46d4, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: cc5bf08a4a382a24da96e821fc081728, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -91,10 +91,11 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Float: 2
+    - _Float: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _HeightStrenght: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -104,9 +105,12 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _TextureOverlay: 0
+    - _Tiling: 0
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 0.5827389, b: 1, a: 1}
+    - _Color: {r: 0.41960785, g: 0.83137256, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HeightColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

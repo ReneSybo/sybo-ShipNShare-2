@@ -38,16 +38,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _HeightCast: 0.08
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Rim: 11.71
     - _RimStrength: 5
     - _Roughness: 1
-    - _Shadeless: 0
+    - _Shadeless: 0.411
     - _TextureOverlay: 0
     - _Tiling: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 0}
+    - _HeightColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1817404696115809055
 MonoBehaviour:

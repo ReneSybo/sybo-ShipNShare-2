@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MasterMaterial
+  m_Name: MasterMaterial_DirtCast
   m_Shader: {fileID: -6465566751694194690, guid: 5628b9e0533602b45814f7133a1e46d4, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -82,7 +82,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HeightStrenght: 0
+    - _HeightStrenght: 0.31
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -99,7 +99,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HeightColor: {r: 0, g: 0, b: 0, a: 0}
+    - _HeightColor: {r: 0.98823535, g: 0.77647066, b: 0.5176471, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &9210073613990644419
 MonoBehaviour:

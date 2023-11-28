@@ -60,7 +60,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Float: 0.066
-    - _Normal01Strength: 0.136
+    - _Normal01Strength: 0.198
     - _Normal01Tiling: 3.04
     - _Normal02Strength: 1
     - _Normal02Tiling: 17.38

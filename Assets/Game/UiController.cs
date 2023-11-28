@@ -39,7 +39,7 @@ namespace Game
 
 		void UpdateMoneyText()
 		{
-			MoneyText.text = "Rad sea shells: " + GlobalVariables.Money;
+			MoneyText.text = GlobalVariables.Money.ToString();
 		}
 
 		void OnCutsceneState(bool state)
@@ -99,6 +99,7 @@ namespace Game
 			HideAll();
 			ShopRoot.SetActive(true);
 			ShopScene3D.SetActive(true);
+			HudRoot.SetActive(true);
 		}
 
 		void OnGameEnded()
