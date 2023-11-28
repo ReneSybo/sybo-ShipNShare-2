@@ -52,6 +52,7 @@ namespace Game.Player
 				GameEvents.GameEnded.Dispatch();
 				_animator.SetFloat(AnimationSpeed, 0);
 				GlobalVariables.PlayerHealth = GlobalVariables.PlayerStartHealth;
+				GlobalVariables.Money = 0;
 				enabled = false;
 				
 				_playerTransform.localPosition = Vector3.zero;
@@ -90,9 +91,10 @@ namespace Game.Player
 			CurrentSpeed *= SpeedDampening;
 			if (moved)
 			{
-				CurrentSpeed.x += movementToAdd.x * Mathf.Abs(movement.x) * Speed * GameTime.DeltaTime;
+				float speed = Speed + Upgrades.Instance.GetValue(UpgradeType.Speed);
+				CurrentSpeed.x += movementToAdd.x * Mathf.Abs(movement.x) * speed * GameTime.DeltaTime;
 				CurrentSpeed.y = 0;
-				CurrentSpeed.z += movementToAdd.z * Mathf.Abs(movement.z) * Speed * GameTime.DeltaTime;
+				CurrentSpeed.z += movementToAdd.z * Mathf.Abs(movement.z) * speed * GameTime.DeltaTime;
 			}
 		}
 

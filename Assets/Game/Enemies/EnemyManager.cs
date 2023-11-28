@@ -72,6 +72,7 @@ namespace Game.Enemies
 				if (GlobalVariables.Enemies.Count == 0 && _currentRound.Completed())
 				{
 					GameEvents.RoundOver.Dispatch();
+					_currentRound = null;
 				}
 			}
 		}

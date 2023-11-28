@@ -28,6 +28,7 @@ namespace Game
 			GameStartRoot.SetActive(true);
 			IntroScene3D.SetActive(true);
 			GameEvents.GameStarted.Dispatch();
+			Upgrades.Reset();
 		}
 
 		public void OnLeaveShop()
