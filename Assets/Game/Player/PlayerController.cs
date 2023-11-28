@@ -1,15 +1,20 @@
-﻿using UnityEngine;
+﻿using Game.Events;
+using UnityEngine;
 
 namespace Game.Player
 {
 	public class PlayerController : MonoBehaviour
 	{
 		static readonly int AnimationSpeed = Animator.StringToHash("Speed");
+		static readonly int AnimationDirection = Animator.StringToHash("Direction");
+		static readonly int AnimationShotPrimary = Animator.StringToHash("FireR");
+		static readonly int AnimationShotSecondary = Animator.StringToHash("FireL");
 		
 		public float Speed = 1f;
 		public float SpeedDampening = 0.98f;
 		public Transform PlayerMesh;
 		public Animator _animator;
+		public Weapon Weapon;
 		
 		public Vector3 CurrentSpeed;
 		Transform _playerTransform;
@@ -19,6 +24,13 @@ namespace Game.Player
 		{
 			_playerTransform = transform;
 			_currentMeshForward = _playerTransform.forward;
+			
+			GameEvents.ProjectileSpawned.AddListener(OnProjectileSpawned);
+		}
+
+		void OnProjectileSpawned(bool fromPrimary)
+		{
+			_animator.SetTrigger(fromPrimary ? AnimationShotPrimary : AnimationShotSecondary);
 		}
 
 		void Update()
@@ -26,6 +38,8 @@ namespace Game.Player
 			UpdateCurrentSpeed();
 			UpdatePlayerPosition();
 			UpdateCharacterMesh();
+			
+			_animator.SetFloat(AnimationDirection, Vector3.SignedAngle(Weapon.CurrentShotDirection, _currentMeshForward, Vector3.up));
 		}
 
 		void UpdateCurrentSpeed()

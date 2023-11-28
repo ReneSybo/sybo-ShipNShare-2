@@ -9,6 +9,7 @@ namespace Game.Events
 		public static readonly GameEvent PlayerHurt = new GameEvent();
 		public static readonly GameEvent<EnemyController> EnemyDied = new GameEvent<EnemyController>();
 		public static readonly GameEvent<Projectile> ProjectileDespawned = new GameEvent<Projectile>();
+		public static readonly GameEvent<bool> ProjectileSpawned = new GameEvent<bool>();
 	}
 	
 	public class GameEvent

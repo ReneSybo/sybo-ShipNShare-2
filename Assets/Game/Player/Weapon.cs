@@ -7,8 +7,11 @@ namespace Game.Player
 	public class Weapon : MonoBehaviour
 	{
 		public ProjectilePool Pool;
-		public Transform ShotPoint;
+		public Transform PrimaryShotpoint;
+		public Transform SecondaryShotPoint;
+		public Vector3 CurrentShotDirection;
 
+		bool _shootingFromPrimary;
 		public float ShotSpeed = 0.5f;
 		float _timeToShoot;
 
@@ -57,7 +60,13 @@ namespace Game.Player
 		void ShootAt(Vector3 target)
 		{
 			Projectile projectile = Pool.SpawnItem();
-			projectile.SetTarget(ShotPoint.position, target);
+
+			Vector3 startPoint = _shootingFromPrimary ? PrimaryShotpoint.position : SecondaryShotPoint.position;
+			CurrentShotDirection = (target - startPoint).normalized;
+			projectile.SetTarget(startPoint, target);
+			GameEvents.ProjectileSpawned.Dispatch(_shootingFromPrimary);
+			
+			_shootingFromPrimary = !_shootingFromPrimary;
 		}
 	}
 }
