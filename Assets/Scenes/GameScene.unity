@@ -454,6 +454,52 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &1179139675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1179139676}
+  - component: {fileID: 1179139677}
+  m_Layer: 0
+  m_Name: ProjectileContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1179139676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179139675}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1179139677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179139675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46021f76b0f144109b5aa178c64f3ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialSpawnCount: 10
+  Source: {fileID: -7881242826688365669, guid: 9482557777b1dd940a3a0be5506b8916, type: 3}
 --- !u!4 &1580312947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8356981497302008668, guid: b668a9532d12bca44b86de220717d4f2, type: 3}
@@ -589,6 +635,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5172347903076632434, guid: b668a9532d12bca44b86de220717d4f2, type: 3}
+      propertyPath: Pool
+      value: 
+      objectReference: {fileID: 1179139677}
     - target: {fileID: 8356981497302008640, guid: b668a9532d12bca44b86de220717d4f2, type: 3}
       propertyPath: m_Name
       value: Player

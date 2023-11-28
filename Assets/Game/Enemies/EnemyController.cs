@@ -10,14 +10,15 @@ namespace Game.Enemies
 	{
 		Transform _enemyTransform;
 		Vector3 _currentDirection;
-		Vector3 _currentPosition;
 		float _timeToOrientation;
 		float _timeToHurt;
 		Vector3 _pushDir;
 
+		public Vector3 CurrentPosition;
 		public float HurtRadius = 1f;
 		public float Speed = 1f;
 		public float TimeBetweenOrientation = 0.1f;
+		public float TimeBetweenHurting = 0.5f;
 
 		void Awake()
 		{
@@ -27,10 +28,10 @@ namespace Game.Enemies
 		void OnDrawGizmosSelected()
 		{
 			Gizmos.color = Color.magenta;
-			Gizmos.DrawWireSphere(_currentPosition, HurtRadius);
+			Gizmos.DrawWireSphere(CurrentPosition, HurtRadius);
 			
 			Gizmos.color = Color.green;
-			Gizmos.DrawWireSphere(_currentPosition, GlobalVariables.AvoidingRange);
+			Gizmos.DrawWireSphere(CurrentPosition, GlobalVariables.AvoidingRange);
 		}
 
 		[ContextMenu("Respawn")]
@@ -43,8 +44,8 @@ namespace Game.Enemies
 			float x = distance * Mathf.Sin(angle);
 			float y = distance * Mathf.Cos(angle);
 			
-			_currentPosition = new Vector3(x, 0, y);
-			_enemyTransform.localPosition = _currentPosition;
+			CurrentPosition = new Vector3(x, 0, y);
+			_enemyTransform.localPosition = CurrentPosition;
 			_enemyTransform.LookAt(GlobalVariables.PlayerPos);
 			_currentDirection = _enemyTransform.forward;
 			
@@ -65,17 +66,18 @@ namespace Game.Enemies
 
 			_pushDir = _pushDir * 0.95f;
 			
-			_currentPosition += _currentDirection * Speed * GameTime.DeltaTime;
-			_currentPosition += _pushDir * GameTime.DeltaTime;
+			CurrentPosition += _currentDirection * Speed * GameTime.DeltaTime;
+			CurrentPosition += _pushDir * GameTime.DeltaTime;
 			
-			_enemyTransform.localPosition = _currentPosition;
+			_enemyTransform.localPosition = CurrentPosition;
 
 			if (_timeToHurt <= 0f)
 			{
-				Vector3 distanceToPlayer = GlobalVariables.PlayerPos - _currentPosition;
+				Vector3 distanceToPlayer = GlobalVariables.PlayerPos - CurrentPosition;
 				if (distanceToPlayer.sqrMagnitude <= HurtRadius)
 				{
-					GameEvents.EnemyDied.Dispatch(this);
+					_timeToHurt = TimeBetweenHurting;
+					GameEvents.PlayerHurt.Dispatch();
 				}
 			}
 		}
@@ -87,10 +89,10 @@ namespace Game.Enemies
 			
 			foreach (EnemyController enemy in nearbyEnemies)
 			{
-				float distance = Vector3.Distance(_currentPosition, enemy._currentPosition);
+				float distance = Vector3.Distance(CurrentPosition, enemy.CurrentPosition);
 				if (distance < GlobalVariables.AvoidingRange)
 				{
-					moveAmount += _currentPosition - enemy._currentPosition;
+					moveAmount += CurrentPosition - enemy.CurrentPosition;
 				}
 			}
 			
@@ -105,6 +107,11 @@ namespace Game.Enemies
 		public void Despawn()
 		{
 			GlobalVariables.Enemies.Remove(this);
+		}
+
+		public void Hit()
+		{
+			GameEvents.EnemyDied.Dispatch(this);
 		}
 	}
 }
