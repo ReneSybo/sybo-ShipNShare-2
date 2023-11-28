@@ -50,6 +50,7 @@ namespace Game
 			GameOverRoot.SetActive(false);
 			ShopScene3D.SetActive(false);
 			GameStartRoot.SetActive(false);
+			IntroScene3D.SetActive(false);
 		}
 
 		void OnRoundEnded()
