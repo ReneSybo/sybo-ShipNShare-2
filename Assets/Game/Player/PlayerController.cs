@@ -24,6 +24,7 @@ namespace Game.Player
 
 		Vector3 _initialForward;
 		static readonly int Flexing = Animator.StringToHash("Flexing");
+		static readonly int Rand = Animator.StringToHash("Rand");
 
 		void Awake()
 		{
@@ -107,6 +108,11 @@ namespace Game.Player
 		{
 			if (Input.GetKey(KeyCode.Space))
 			{
+				if (Input.GetKeyDown(KeyCode.Space))
+				{
+					_animator.SetInteger(Rand, Random.Range(0,3));
+				}
+				
 				_upperBodyLayer = 0;
 				GlobalVariables.IsFlexing = true;
 				_animator.SetLayerWeight(1, _upperBodyLayer);
