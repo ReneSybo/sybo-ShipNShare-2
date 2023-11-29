@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Enemy_Brute
   m_EditorClassIdentifier: 
   Type: 1
-  Health: 3
-  Speed: 4
+  Health: 5
+  Speed: 1.5
   Damage: 5
   TimeBetweenAttacks: 2
   MoneyOnDeath: 2
