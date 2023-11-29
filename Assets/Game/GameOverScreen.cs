@@ -11,8 +11,7 @@ namespace Game
 		
 		void OnEnable()
 		{
-			int points = (int)(GlobalVariables.Score - GlobalVariables.ScoreLostPerSecond + GlobalVariables.ScoreGainedFromFlex);
-			MoneyText.text = "Score: " + points;
+			MoneyText.text = "Score: " + GlobalVariables.TotalScore;
 		}
 	}
 }

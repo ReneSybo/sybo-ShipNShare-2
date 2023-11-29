@@ -63,8 +63,7 @@ namespace Game
 				GlobalVariables.ScoreGainedFromFlex += GameTime.DeltaTime * GlobalVariables.ScorePerSeconfFlex;
 			}
 			GlobalVariables.ScoreLostToTime += GameTime.DeltaTime * GlobalVariables.ScoreLostPerSecond;
-			int totalScore = (int)(GlobalVariables.Score - GlobalVariables.ScoreLostToTime + GlobalVariables.ScoreGainedFromFlex);
-			ScoreText.text = "Score: " + totalScore.ToString();
+			ScoreText.text = "Score: " + GlobalVariables.TotalScore;
 		}
 
 		void UpdateMoneyText()

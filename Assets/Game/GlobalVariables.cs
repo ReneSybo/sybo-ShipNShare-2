@@ -35,6 +35,8 @@ namespace Game.Player
 		public static int Score;
 		public static float ScoreLostToTime;
 		public static float ScoreGainedFromFlex;
+
+		public static int TotalScore => (int)Mathf.Min(0, Score - ScoreLostToTime + ScoreGainedFromFlex);
 		
 		public static int ScorePerKill;
 		public static int ScorePerCoinPickup;
