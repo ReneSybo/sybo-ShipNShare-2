@@ -58,6 +58,12 @@ namespace Game
 
 		void Update()
 		{
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				Application.Quit(0);
+				return;
+			}
+			
 			if (GlobalVariables.IsFlexing && _isInRound)
 			{
 				GlobalVariables.ScoreGainedFromFlex += GameTime.DeltaTime * GlobalVariables.ScorePerSeconfFlex;
