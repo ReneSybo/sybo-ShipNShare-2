@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6264918785820679597}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HeightOffset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 5120327195040697613}
   - component: {fileID: 8440542181543919248}
   - component: {fileID: 6153026630254041754}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 3833881640883237444}
   - component: {fileID: 9009993464781066547}
   - component: {fileID: 2882714832550349835}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 9165922510261828547}
   - component: {fileID: 1130443972222465194}
   - component: {fileID: 5346177703210249581}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
