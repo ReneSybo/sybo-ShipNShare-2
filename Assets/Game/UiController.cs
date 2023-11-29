@@ -31,6 +31,7 @@ namespace Game
 			GameEvents.GameStarted.AddListener(OnGameStarted);
 			GameEvents.RoundOver.AddListener(OnRoundEnded);
 			GameEvents.RoundStarted.AddListener(OnRoundStarted);
+			GameEvents.CastleTrashed.AddListener(OnRoundStarted);
 			GameEvents.CutsceneState.AddListener(OnCutsceneState);
 			GameEvents.MoneyGained.AddListener(OnMoneyGained);
 			GameEvents.MoneySpend.AddListener(UpdateMoneyText);
