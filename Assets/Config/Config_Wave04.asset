@@ -15,14 +15,14 @@ MonoBehaviour:
   Compositions:
   - Config: {fileID: 11400000, guid: 88923f64301756644b59a98a487a6ff7, type: 2}
     Count: 120
-    TimeBetweenSpawn: 0.25
+    TimeBetweenSpawn: 0.5
   - Config: {fileID: 11400000, guid: 07e0d685dfe481b438b51a79ffb18a2d, type: 2}
     Count: 30
     TimeBetweenSpawn: 1
   - Config: {fileID: 11400000, guid: 61a3ac044f3b53d44b4874e9d57d960d, type: 2}
     Count: 2
     TimeBetweenSpawn: 2
-  HealthScale: 0.3
-  DamageScale: 0.3
-  SpeedScale: 0.3
-  AttackSpeedScale: 0.3
+  HealthScale: 0.2
+  DamageScale: 0.2
+  SpeedScale: 0.1
+  AttackSpeedScale: 0

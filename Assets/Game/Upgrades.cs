@@ -18,10 +18,10 @@ namespace Game
 		Upgrades()
 		{
 			_dictionary = new Dictionary<UpgradeType, UpgradeState>();
-			_dictionary[UpgradeType.Speed] = new UpgradeState(10, 0.08f, 8);
-			_dictionary[UpgradeType.Health] = new UpgradeState(10, 2f, 5);
-			_dictionary[UpgradeType.AttackSpeed] = new UpgradeState(10, 0.03f, 15);
-			_dictionary[UpgradeType.Damage] = new UpgradeState(10, 0.2f, 8);
+			_dictionary[UpgradeType.Speed] = new UpgradeState(6, 0.13f, 8);
+			_dictionary[UpgradeType.Health] = new UpgradeState(6, 3f, 5);
+			_dictionary[UpgradeType.AttackSpeed] = new UpgradeState(6, 0.05f, 15);
+			_dictionary[UpgradeType.Damage] = new UpgradeState(6, 0.5f, 8);
 		}
 
 		public float GetValue(UpgradeType type)

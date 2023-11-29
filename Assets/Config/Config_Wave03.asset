@@ -22,7 +22,7 @@ MonoBehaviour:
   - Config: {fileID: 11400000, guid: 61a3ac044f3b53d44b4874e9d57d960d, type: 2}
     Count: 1
     TimeBetweenSpawn: 10
-  HealthScale: 0.2
-  DamageScale: 0.2
-  SpeedScale: 0.3
+  HealthScale: 0.1
+  DamageScale: 0
+  SpeedScale: 0.2
   AttackSpeedScale: 0.1

@@ -17,11 +17,14 @@ namespace Game
 		
 		public TMP_Text MoneyText;
 		public TMP_Text ScoreText;
+		public TMP_Text WaveText;
 		
 		public GameObject ShopScene3D;
 		public GameObject IntroScene3D;
 		public GameObject MenuScene3D;
 		public GameObject EndScene3D;
+
+		public int counter = 0;
 		
 		bool _isInRound;
 		
@@ -42,6 +45,7 @@ namespace Game
 		void OnRoundStarted()
 		{
 			_isInRound = true;
+			WaveText.text = "Wave: " + counter;
 		}
 
 		void OnGameStarted()
@@ -92,6 +96,8 @@ namespace Game
 			IntroScene3D.SetActive(true);
 			GameEvents.GameStarted.Dispatch();
 			Upgrades.Reset();
+			counter = 1;
+			WaveText.text = "Wave: " + counter;
 		}
 
 		public void OnSkipCutscene()
@@ -100,11 +106,15 @@ namespace Game
 			GameEvents.GameStarted.Dispatch();
 			Upgrades.Reset();
 			GameEvents.CutsceneState.Dispatch(false);
+			counter = 1;
+			WaveText.text = "Wave: " + counter;
 		}
 
 		public void OnLeaveShop()
 		{
 			HideAll();
+			counter = counter + 1;
+
 			GameEvents.RoundStarted.Dispatch();
 			HudRoot.SetActive(true);
 		}
