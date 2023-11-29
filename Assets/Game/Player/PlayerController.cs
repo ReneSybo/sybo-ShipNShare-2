@@ -64,6 +64,7 @@ namespace Game.Player
 		void OnRoundEnded()
 		{
 			enabled = false;
+			GlobalVariables.PlayerHealth = GlobalVariables.PlayerMaxHealth;
 		}
 
 		void OnRoundStarted()
