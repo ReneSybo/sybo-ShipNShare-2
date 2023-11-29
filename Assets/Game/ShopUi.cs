@@ -1,4 +1,5 @@
 ﻿using Game.Player;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,11 @@ namespace Game
 		public Slider HealthSlider;
 		public Slider AttackSpeedSlider;
 		public Slider DamageSlider;
+		
+		public TMP_Text SpeedText;
+		public TMP_Text HealthText;
+		public TMP_Text AttackSpeedText;
+		public TMP_Text DamageText;
 
 		void OnEnable()
 		{
@@ -27,6 +33,11 @@ namespace Game
 			HealthSlider.value = Upgrades.Instance.GetRatio(UpgradeType.Health);
 			AttackSpeedSlider.value = Upgrades.Instance.GetRatio(UpgradeType.AttackSpeed);
 			DamageSlider.value = Upgrades.Instance.GetRatio(UpgradeType.Damage);
+
+			SpeedText.text = "-" + Upgrades.Instance.GetUpgradeCost(UpgradeType.Speed);
+			HealthText.text = "-" + Upgrades.Instance.GetUpgradeCost(UpgradeType.Health);
+			AttackSpeedText.text = "-" + Upgrades.Instance.GetUpgradeCost(UpgradeType.AttackSpeed);
+			DamageText.text = "-" + Upgrades.Instance.GetUpgradeCost(UpgradeType.Damage);
 		}
 
 		void UpdateButtonState(Button button, Slider slider, UpgradeType state)

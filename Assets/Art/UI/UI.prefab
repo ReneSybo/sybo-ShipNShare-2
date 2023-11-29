@@ -3849,6 +3849,10 @@ MonoBehaviour:
   HealthSlider: {fileID: 1829687341704867679}
   AttackSpeedSlider: {fileID: 1829687340145999940}
   DamageSlider: {fileID: 3091363323950846134}
+  SpeedText: {fileID: 1829687341069177252}
+  HealthText: {fileID: 1008736612744009225}
+  AttackSpeedText: {fileID: 7341395780053341818}
+  DamageText: {fileID: 2878831565864927362}
 --- !u!1 &1829687341216977992
 GameObject:
   m_ObjectHideFlags: 0
