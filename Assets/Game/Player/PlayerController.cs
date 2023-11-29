@@ -19,6 +19,8 @@ namespace Game.Player
 		public GameObject Gun1;
 		public GameObject Gun2;
 
+		public GameObject Heart;
+
 		float _upperBodyLayer;
 		public Vector3 CurrentSpeed;
 		Transform _playerTransform;
@@ -112,6 +114,7 @@ namespace Game.Player
 			{
 				if (Input.GetKeyDown(KeyCode.Space))
 				{
+					Heart.SetActive(true);
 					_animator.SetInteger(Rand, Random.Range(0,3));
 
 					GameObject.Find("HUD").GetComponent<Animator>().SetBool("Flexing", true);
@@ -129,6 +132,7 @@ namespace Game.Player
 			{
 				if (Input.GetKeyUp(KeyCode.Space))
 				{
+					Heart.SetActive(false);
 					GameObject.Find("HUD").GetComponent<Animator>().SetBool("Flexing", false);
 				}
 				Gun1.SetActive(true);
