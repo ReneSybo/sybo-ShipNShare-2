@@ -183,7 +183,7 @@ namespace Game.Enemies
 			public EnemyRoundInfo(EnemyComposition comp)
 			{
 				_comp = comp;
-				Completed = false;
+				Completed = comp.Count <= 0;
 			}
 
 			public void Update()
