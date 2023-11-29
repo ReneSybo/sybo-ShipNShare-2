@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   Health: 10
-  Speed: 2.3
+  Speed: 1.8
   Damage: 20
   TimeBetweenAttacks: 1
   MoneyOnDeath: 5
