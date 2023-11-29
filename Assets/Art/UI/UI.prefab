@@ -7479,6 +7479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 642067186248115809}
   - component: {fileID: 503217334374169304}
+  - component: {fileID: 2201847320372866948}
   m_Layer: 0
   m_Name: HUD
   m_TagString: Untagged
@@ -7518,6 +7519,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6781510632010670794}
   m_CullTransparentMesh: 1
+--- !u!95 &2201847320372866948
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781510632010670794}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4c468fb15641aa4f855cd2ce8bbc9e6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6810101931952971980
 GameObject:
   m_ObjectHideFlags: 0

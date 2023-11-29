@@ -113,6 +113,8 @@ namespace Game.Player
 				if (Input.GetKeyDown(KeyCode.Space))
 				{
 					_animator.SetInteger(Rand, Random.Range(0,3));
+
+					GameObject.Find("HUD").GetComponent<Animator>().SetBool("Flexing", true);
 					
 					Gun1.SetActive(false);
 					Gun2.SetActive(false);
@@ -125,6 +127,10 @@ namespace Game.Player
 			}
 			else
 			{
+				if (Input.GetKeyUp(KeyCode.Space))
+				{
+					GameObject.Find("HUD").GetComponent<Animator>().SetBool("Flexing", false);
+				}
 				Gun1.SetActive(true);
 				Gun2.SetActive(true);
 				
