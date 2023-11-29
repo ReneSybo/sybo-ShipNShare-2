@@ -12,7 +12,8 @@ namespace Game.Enemies
 	{
 		public DifficultyConfig[] Configs;
 		
-		public EnemySpawnPool EnemyPool;
+		public EnemySpawnPool EnemyPoolAgile;
+		public EnemySpawnPool EnemyPoolBrute;
 		public EnemyDeathSpawnPool DeathPool;
 		public MoneySpawnPool MoneyPool;
 
@@ -59,7 +60,7 @@ namespace Game.Enemies
 			
 			foreach (EnemyController enemyController in enemies)
 			{
-				EnemyPool.ReturnEntity(enemyController);
+				GetEnemyPool(enemyController.Type).ReturnEntity(enemyController);
 			}
 
 			foreach (MoneyEntity entity in _activeMoney)
@@ -70,9 +71,22 @@ namespace Game.Enemies
 			_currentConfigIndex = -1;
 		}
 
+		EnemySpawnPool GetEnemyPool(EnemyType type)
+		{
+			switch (type)
+			{
+				case EnemyType.Agile: 
+					return EnemyPoolAgile;
+				case EnemyType.Brute:
+					return EnemyPoolBrute;
+			}
+			
+			return EnemyPoolAgile;
+		}
+
 		void OnEnemySpawned(EnemyConfig config)
 		{
-			EnemyController enemy = EnemyPool.SpawnItem();
+			EnemyController enemy = GetEnemyPool(config.Type).SpawnItem();
 			enemy.ApplyConfig(config);
 		}
 
@@ -102,7 +116,7 @@ namespace Game.Enemies
 		void OnEnemyDied(EnemyController enemy)
 		{
 			GlobalVariables.Score += GlobalVariables.ScorePerKill;
-			EnemyPool.ReturnEntity(enemy);
+			GetEnemyPool(enemy.Type).ReturnEntity(enemy);
 
 			EnemyDeath enemyDeath = DeathPool.SpawnItem();
 			enemyDeath.CopyFrom(enemy);

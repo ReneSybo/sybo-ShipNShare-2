@@ -6,8 +6,7 @@ namespace Game.Enemies
 	public class EnemyConfig : ScriptableObject
 	{
 		[Header("Visuals")]
-		public Mesh Mesh;
-		public Material Material;
+		public EnemyType Type;
 		
 		[Header("Stats")]
 		public float Health;

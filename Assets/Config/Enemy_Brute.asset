@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69df53a416f41debeb1c1c7eb2266fa, type: 3}
   m_Name: Enemy_Brute
   m_EditorClassIdentifier: 
-  Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-  Material: {fileID: 2100000, guid: 71c8753baff58eb41987ecc6a909120b, type: 2}
+  Type: 1
   Health: 3
   Speed: 4
   Damage: 5

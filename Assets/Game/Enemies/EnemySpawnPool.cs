@@ -2,6 +2,6 @@
 {
 	public class EnemySpawnPool : SpawnPool<EnemyController>
 	{
-		
+		public EnemyType Type;
 	}
 }

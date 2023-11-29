@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69df53a416f41debeb1c1c7eb2266fa, type: 3}
   m_Name: Enemy_Agile
   m_EditorClassIdentifier: 
-  Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  Material: {fileID: 2100000, guid: 7e07c242385223d47bf1d309030c2422, type: 2}
+  Type: 0
   Health: 1
   Speed: 3
   Damage: 1

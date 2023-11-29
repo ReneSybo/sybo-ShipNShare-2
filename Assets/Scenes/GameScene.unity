@@ -877,6 +877,53 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &621027307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 621027308}
+  - component: {fileID: 621027309}
+  m_Layer: 0
+  m_Name: Agiles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &621027308
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621027307}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008969499}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &621027309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621027307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087a18c188604a44a6f5dde7944de716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialSpawnCount: 5
+  Source: {fileID: 5340388897593716612, guid: e3ec15f14826baf498ed30dbe08ed0d3, type: 3}
+  Type: 0
 --- !u!1001 &627311767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3344,6 +3391,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 254c68228b2196041908690167381592, type: 3}
+--- !u!1 &2001258967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2001258968}
+  - component: {fileID: 2001258969}
+  m_Layer: 0
+  m_Name: Brutes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2001258968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001258967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008969499}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2001258969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001258967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087a18c188604a44a6f5dde7944de716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialSpawnCount: 5
+  Source: {fileID: 5340388897593716612, guid: b3529b13bad537745ab2d31f820f9428, type: 3}
+  Type: 1
 --- !u!1 &2008969497
 GameObject:
   m_ObjectHideFlags: 0
@@ -3354,7 +3448,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2008969499}
   - component: {fileID: 2008969498}
-  - component: {fileID: 2008969500}
   - component: {fileID: 2008969501}
   - component: {fileID: 2008969502}
   m_Layer: 0
@@ -3382,7 +3475,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6423177bad517da4698da817258bf576, type: 2}
   - {fileID: 11400000, guid: d2a7544f9c114184798a216922cfb7b7, type: 2}
   - {fileID: 11400000, guid: d7551c380a120bd46983915db0723269, type: 2}
-  EnemyPool: {fileID: 2008969500}
+  EnemyPoolAgile: {fileID: 621027309}
+  EnemyPoolBrute: {fileID: 2001258969}
   DeathPool: {fileID: 2008969501}
   MoneyPool: {fileID: 2008969502}
 --- !u!4 &2008969499
@@ -3396,24 +3490,12 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2001258968}
+  - {fileID: 621027308}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2008969500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2008969497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 087a18c188604a44a6f5dde7944de716, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitialSpawnCount: 10
-  Source: {fileID: 5340388897593716612, guid: e3ec15f14826baf498ed30dbe08ed0d3, type: 3}
 --- !u!114 &2008969501
 MonoBehaviour:
   m_ObjectHideFlags: 0

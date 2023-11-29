@@ -7,6 +7,12 @@ using Random = UnityEngine.Random;
 
 namespace Game.Enemies
 {
+	public enum EnemyType
+	{
+		Agile,
+		Brute,
+	}
+	
 	public class EnemyController : MonoBehaviour, ISpawnable
 	{
 		Transform _enemyTransform;
@@ -15,9 +21,7 @@ namespace Game.Enemies
 		float _timeToHurt;
 		Vector3 _pushDir;
 
-		public MeshRenderer Renderer;
-		public MeshFilter Filter;
-
+		public EnemyType Type;
 		public int MoneyOnDeath;
 		public float Health;
 		public Vector3 CurrentPosition;
@@ -54,7 +58,6 @@ namespace Game.Enemies
 			Gizmos.DrawWireSphere(CurrentPosition, GlobalVariables.AvoidingRange);
 		}
 
-		[ContextMenu("Respawn")]
 		public void Spawn()
 		{
 			Vector2 distances = GlobalVariables.EnemySpawnDistances;
@@ -77,8 +80,6 @@ namespace Game.Enemies
 			_config = config;
 			MoneyOnDeath = config.MoneyOnDeath;
 			Health = config.Health * GlobalVariables.TotalHealthScale;
-			Filter.sharedMesh = config.Mesh;
-			Renderer.sharedMaterial = config.Material;
 		}
 
 		void Update()
