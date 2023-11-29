@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Game.Difficulty;
 using Game.Events;
@@ -93,11 +94,19 @@ namespace Game.Enemies
 				_currentRound.Update();
 				if (GlobalVariables.Enemies.Count == 0 && _currentRound.Completed())
 				{
-					GameEvents.RoundOver.Dispatch();
 					_currentRound = null;
+					StartCoroutine(DelayEnd());
+					GameObject.Find("DelayPanel").GetComponent<Animation>().Play();
 				}
 			}
 		}
+
+		private IEnumerator DelayEnd()
+		{
+			yield return new WaitForSeconds(5.0f);
+			GameEvents.RoundOver.Dispatch();
+		}
+
 
 		void OnEnemyDied(EnemyController enemy)
 		{

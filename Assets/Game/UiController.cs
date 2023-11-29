@@ -49,7 +49,7 @@ namespace Game
 		{
 			GlobalVariables.ScoreLostToTime += GameTime.DeltaTime * GlobalVariables.ScoreLostPerSecond;
 			int totalScore = (int)(GlobalVariables.Score - GlobalVariables.ScoreLostToTime);
-			ScoreText.text = totalScore.ToString();
+			ScoreText.text = "Score: " + totalScore.ToString();
 		}
 
 		void UpdateMoneyText()
