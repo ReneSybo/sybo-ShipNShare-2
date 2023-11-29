@@ -23,7 +23,8 @@ namespace Game.Player
 		Vector3 _currentMeshForward;
 
 		Vector3 _initialForward;
-		
+		static readonly int Flexing = Animator.StringToHash("Flexing");
+
 		void Awake()
 		{
 			_playerTransform = transform;
@@ -106,11 +107,13 @@ namespace Game.Player
 		{
 			if (Input.GetKey(KeyCode.Space))
 			{
-				_animator.SetBool("Flexing", true);
+				GlobalVariables.IsFlexing = true;
+				_animator.SetBool(Flexing, true);
 			}
 			else
 			{
-				_animator.SetBool("Flexing", false);
+				GlobalVariables.IsFlexing = false;
+				_animator.SetBool(Flexing, false);
 				UpdateCurrentSpeed();
 				UpdatePlayerPosition();
 				UpdateCharacterMesh();

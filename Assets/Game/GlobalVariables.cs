@@ -44,6 +44,7 @@ namespace Game.Player
 		public static float TotalHealthScale = 1f;
 		public static float TotalSpeedScale = 1f;
 		public static float TotalAttackSpeedScale = 1f;
+		public static bool IsFlexing;
 		
 		bool _playing;
 

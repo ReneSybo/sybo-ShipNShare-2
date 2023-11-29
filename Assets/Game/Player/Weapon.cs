@@ -50,7 +50,7 @@ namespace Game.Player
 		void Update()
 		{
 			_timeToShoot -= GameTime.DeltaTime;
-			if (_timeToShoot <= 0)
+			if (!GlobalVariables.IsFlexing && _timeToShoot <= 0)
 			{
 				TryShoot();
 				_timeToShoot = ShotSpeed - Upgrades.Instance.GetValue(UpgradeType.AttackSpeed);
