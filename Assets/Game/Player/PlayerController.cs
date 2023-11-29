@@ -107,7 +107,9 @@ namespace Game.Player
 		{
 			if (Input.GetKey(KeyCode.Space))
 			{
+				_upperBodyLayer = 0;
 				GlobalVariables.IsFlexing = true;
+				_animator.SetLayerWeight(1, _upperBodyLayer);
 				_animator.SetBool(Flexing, true);
 			}
 			else
