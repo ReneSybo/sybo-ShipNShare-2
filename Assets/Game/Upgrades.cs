@@ -88,6 +88,8 @@ namespace Game
 				GlobalVariables.Money -= UpgradeCost;
 				GameEvents.MoneySpend.Dispatch();
 
+				GlobalVariables.Score += GlobalVariables.ScorePerUpgrade;
+				
 				return true;
 			}
 

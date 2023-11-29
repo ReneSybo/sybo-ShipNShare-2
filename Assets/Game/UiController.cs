@@ -16,6 +16,7 @@ namespace Game
 		public GameObject HudRoot;
 		
 		public TMP_Text MoneyText;
+		public TMP_Text ScoreText;
 		
 		public GameObject ShopScene3D;
 		public GameObject IntroScene3D;
@@ -24,6 +25,7 @@ namespace Game
 		void Awake()
 		{
 			GameEvents.GameEnded.AddListener(OnGameEnded);
+			GameEvents.GameStarted.AddListener(OnGameStarted);
 			GameEvents.RoundOver.AddListener(OnRoundEnded);
 			GameEvents.CutsceneState.AddListener(OnCutsceneState);
 			GameEvents.MoneyGained.AddListener(OnMoneyGained);
@@ -32,9 +34,21 @@ namespace Game
 			OnResetGame();
 		}
 
+		void OnGameStarted()
+		{
+			GlobalVariables.ScoreLostToTime = 0;
+		}
+
 		void OnMoneyGained(MoneyEntity entity)
 		{
 			UpdateMoneyText();
+		}
+
+		void Update()
+		{
+			GlobalVariables.ScoreLostToTime += GameTime.DeltaTime * GlobalVariables.ScoreLostPerSecond;
+			int totalScore = (int)(GlobalVariables.Score - GlobalVariables.ScoreLostToTime);
+			ScoreText.text = totalScore.ToString();
 		}
 
 		void UpdateMoneyText()

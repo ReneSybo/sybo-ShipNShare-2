@@ -34,12 +34,19 @@ namespace Game.Player
 			GameEvents.PlayerHurt.AddListener(OnPlayerHurt);
 			GameEvents.RoundStarted.AddListener(OnRoundStarted);
 			GameEvents.RoundOver.AddListener(OnRoundEnded);
+			GameEvents.GameStarted.AddListener(OnGameStart);
 			GameEvents.CutsceneState.AddListener(OnCutsceneState);
 			
 			_animator.SetLayerWeight(1, _upperBodyLayer);
 			_animator.SetFloat(AnimationSpeed, 0);
 			
 			enabled = false;
+		}
+
+		void OnGameStart()
+		{
+			GlobalVariables.Score = 0;
+			GlobalVariables.ScoreLostToTime = 0;
 		}
 
 		void OnCutsceneState(bool active)

@@ -77,6 +77,8 @@ namespace Game.Player
 					Gun1.SetActive(true);
 					Gun2.SetActive(true);
 
+					GlobalVariables.Score += GlobalVariables.ScorePerCastleSmash;
+
 					if (Particles != null)
 					{
 						Particles.Play(true);
