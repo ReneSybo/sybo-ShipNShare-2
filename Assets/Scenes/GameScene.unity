@@ -888,6 +888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 621027308}
   - component: {fileID: 621027309}
+  - component: {fileID: 621027310}
   m_Layer: 0
   m_Name: Agiles
   m_TagString: Untagged
@@ -924,6 +925,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialSpawnCount: 5
   Source: {fileID: 5340388897593716612, guid: e3ec15f14826baf498ed30dbe08ed0d3, type: 3}
+  Type: 0
+--- !u!114 &621027310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621027307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff83a73eda24f45805c2f29b03cc78d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialSpawnCount: 5
+  Source: {fileID: 671070590974509242, guid: 5ae18e4459219e440bde1ce0cd9744de, type: 3}
   Type: 0
 --- !u!1001 &627311767
 PrefabInstance:
@@ -3394,6 +3410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2001258968}
   - component: {fileID: 2001258969}
+  - component: {fileID: 2001258970}
   m_Layer: 0
   m_Name: Brutes
   m_TagString: Untagged
@@ -3431,6 +3448,21 @@ MonoBehaviour:
   InitialSpawnCount: 5
   Source: {fileID: 5340388897593716612, guid: b3529b13bad537745ab2d31f820f9428, type: 3}
   Type: 1
+--- !u!114 &2001258970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001258967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff83a73eda24f45805c2f29b03cc78d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialSpawnCount: 5
+  Source: {fileID: 671070590974509242, guid: 647f6af0ec441a245b89eb038e94b9a2, type: 3}
+  Type: 1
 --- !u!1 &2008969497
 GameObject:
   m_ObjectHideFlags: 0
@@ -3441,7 +3473,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2008969499}
   - component: {fileID: 2008969498}
-  - component: {fileID: 2008969501}
   - component: {fileID: 2008969502}
   m_Layer: 0
   m_Name: DynamicEnemies
@@ -3470,7 +3501,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d7551c380a120bd46983915db0723269, type: 2}
   EnemyPoolAgile: {fileID: 621027309}
   EnemyPoolBrute: {fileID: 2001258969}
-  DeathPool: {fileID: 2008969501}
+  DeathPoolAgile: {fileID: 621027310}
+  DeathPoolBrute: {fileID: 2001258970}
   MoneyPool: {fileID: 2008969502}
 --- !u!4 &2008969499
 Transform:
@@ -3489,20 +3521,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2008969501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2008969497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ff83a73eda24f45805c2f29b03cc78d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitialSpawnCount: 5
-  Source: {fileID: 671070590974509242, guid: 5ae18e4459219e440bde1ce0cd9744de, type: 3}
 --- !u!114 &2008969502
 MonoBehaviour:
   m_ObjectHideFlags: 0

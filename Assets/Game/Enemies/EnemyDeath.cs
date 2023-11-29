@@ -7,6 +7,7 @@ namespace Game.Enemies
 	public class EnemyDeath : MonoBehaviour, ISpawnable
 	{
 		public Animation Animation;
+		public EnemyType Type;
 		
 		Transform _transform;
 
