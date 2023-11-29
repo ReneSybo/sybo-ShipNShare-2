@@ -20,6 +20,7 @@ namespace Game.Player
 		public static float SeperateFactor;
 		public static float PlayerAvoidFactor;
 		public static float PlayerHealth;
+		public static float PlayerMaxHealth;
 		public static float PlayerStartHealth;
 		public static int Money;
 		
@@ -28,6 +29,7 @@ namespace Game.Player
 		void Awake()
 		{
 			PlayerHealth = _playerStartHealth;
+			PlayerMaxHealth = _playerStartHealth;
 		}
 		
 		void Update()

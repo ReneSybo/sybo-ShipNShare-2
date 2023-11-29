@@ -68,6 +68,7 @@ namespace Game.Player
 				GameEvents.GameEnded.Dispatch();
 				_animator.SetFloat(AnimationSpeed, 0);
 				GlobalVariables.PlayerHealth = GlobalVariables.PlayerStartHealth;
+				GlobalVariables.PlayerMaxHealth = GlobalVariables.PlayerStartHealth;
 				GlobalVariables.Money = 0;
 				enabled = false;
 				

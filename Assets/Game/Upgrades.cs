@@ -34,14 +34,19 @@ namespace Game
 			return _dictionary[type].CanUpgrade();
 		}
 
-		public void Buy(UpgradeType type)
+		public bool Buy(UpgradeType type)
 		{
-			_dictionary[type].Upgrade();
+			return _dictionary[type].Upgrade();
 		}
 
 		public float GetRatio(UpgradeType type)
 		{
 			return _dictionary[type].GetRatio();
+		}
+		
+		public float GetIncrement(UpgradeType type)
+		{
+			return _dictionary[type].UpgradeIncrement;
 		}
 	}
 	public class UpgradeState
@@ -73,7 +78,7 @@ namespace Game
 			return GlobalVariables.Money >= UpgradeCost;
 		}
 
-		public void Upgrade()
+		public bool Upgrade()
 		{
 			if (CanUpgrade())
 			{
@@ -82,7 +87,11 @@ namespace Game
 
 				GlobalVariables.Money -= UpgradeCost;
 				GameEvents.MoneySpend.Dispatch();
+
+				return true;
 			}
+
+			return false;
 		}
 
 		public float GetRatio()
