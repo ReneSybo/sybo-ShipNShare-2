@@ -76,7 +76,7 @@ namespace Game.Enemies
 		{
 			_config = config;
 			MoneyOnDeath = config.MoneyOnDeath;
-			Health = config.Health;
+			Health = config.Health * GlobalVariables.TotalHealthScale;
 			Filter.sharedMesh = config.Mesh;
 			Renderer.sharedMaterial = config.Material;
 		}
@@ -95,7 +95,7 @@ namespace Game.Enemies
 
 			_pushDir = _pushDir * 0.95f;
 			
-			CurrentPosition += _currentDirection * _config.Speed * GameTime.DeltaTime;
+			CurrentPosition += _currentDirection * _config.Speed * GlobalVariables.TotalSpeedScale * GameTime.DeltaTime;
 			CurrentPosition += _pushDir * GameTime.DeltaTime;
 			
 			_enemyTransform.localPosition = CurrentPosition;
@@ -107,8 +107,8 @@ namespace Game.Enemies
 
 				if (_timeToHurt <= 0f)
 				{
-					_timeToHurt = _config.TimeBetweenAttacks;
-					GlobalVariables.PlayerHealth -= _config.Damage;
+					_timeToHurt = _config.TimeBetweenAttacks / GlobalVariables.TotalAttackSpeedScale;
+					GlobalVariables.PlayerHealth -= _config.Damage * GlobalVariables.TotalDamageScale;
 					GameEvents.PlayerHurt.Dispatch();
 				}
 			}

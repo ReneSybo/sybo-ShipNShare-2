@@ -80,6 +80,10 @@ namespace Game.Player
 				GlobalVariables.PlayerHealth = GlobalVariables.PlayerStartHealth;
 				GlobalVariables.PlayerMaxHealth = GlobalVariables.PlayerStartHealth;
 				GlobalVariables.Money = 0;
+				GlobalVariables.TotalDamageScale = 1;
+				GlobalVariables.TotalHealthScale = 1;
+				GlobalVariables.TotalSpeedScale = 1;
+				GlobalVariables.TotalAttackSpeedScale = 1;
 				enabled = false;
 				
 				_playerTransform.localPosition = new Vector3(-1.99f, 0f, 3f);

@@ -40,6 +40,11 @@ namespace Game.Player
 		public static int ScorePerCastleSmash;
 		public static float ScoreLostPerSecond;
 		
+		public static float TotalDamageScale = 1f;
+		public static float TotalHealthScale = 1f;
+		public static float TotalSpeedScale = 1f;
+		public static float TotalAttackSpeedScale = 1f;
+		
 		bool _playing;
 
 		void Awake()

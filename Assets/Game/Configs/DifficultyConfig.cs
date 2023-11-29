@@ -9,6 +9,11 @@ namespace Game.Difficulty
 	{
 		[Header("Enemy related")] 
 		public EnemyComposition[] Compositions = Array.Empty<EnemyComposition>();
+
+		public float HealthScale = 1f;
+		public float DamageScale = 1f;
+		public float SpeedScale = 1f;
+		public float AttackSpeedScale = 1f;
 	}
 	
 	[Serializable]

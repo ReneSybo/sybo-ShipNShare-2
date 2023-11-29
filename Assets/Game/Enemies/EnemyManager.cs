@@ -127,6 +127,11 @@ namespace Game.Enemies
 
 		public EnemyRound(DifficultyConfig currentConfig)
 		{
+			GlobalVariables.TotalDamageScale += currentConfig.DamageScale;
+			GlobalVariables.TotalHealthScale += currentConfig.HealthScale;
+			GlobalVariables.TotalSpeedScale += currentConfig.SpeedScale;
+			GlobalVariables.TotalAttackSpeedScale += currentConfig.AttackSpeedScale;
+			
 			_spawnInfo = new EnemyRoundInfo[currentConfig.Compositions.Length];
 			for (int i = 0; i < currentConfig.Compositions.Length; i++)
 			{
