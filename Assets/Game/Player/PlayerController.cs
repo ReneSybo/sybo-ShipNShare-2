@@ -104,18 +104,27 @@ namespace Game.Player
 
 		void Update()
 		{
-			UpdateCurrentSpeed();
-			UpdatePlayerPosition();
-			UpdateCharacterMesh();
-
-			_upperBodyLayer -= GameTime.DeltaTime * 0.5f;
-			if (_upperBodyLayer < 0)
+			if (Input.GetKey(KeyCode.Space))
 			{
-				_upperBodyLayer = 0;
+				_animator.SetBool("Flexing", true);
 			}
-			
-			_animator.SetLayerWeight(1, _upperBodyLayer);
-			_animator.SetFloat(AnimationDirection, Vector3.SignedAngle(Weapon.CurrentShotDirection, _currentMeshForward, Vector3.up));
+			else
+			{
+				_animator.SetBool("Flexing", false);
+				UpdateCurrentSpeed();
+				UpdatePlayerPosition();
+				UpdateCharacterMesh();
+
+				_upperBodyLayer -= GameTime.DeltaTime * 0.5f;
+				if (_upperBodyLayer < 0)
+				{
+					_upperBodyLayer = 0;
+				}
+				
+				_animator.SetLayerWeight(1, _upperBodyLayer);
+				_animator.SetFloat(AnimationDirection, Vector3.SignedAngle(Weapon.CurrentShotDirection, _currentMeshForward, Vector3.up));
+			}
+
 		}
 
 		void UpdateCurrentSpeed()
