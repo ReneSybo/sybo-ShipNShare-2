@@ -16,6 +16,7 @@ namespace Game.Player
 		public GameObject TutorialArrow;
 		public GameObject Gun1;
 		public GameObject Gun2;
+		public ParticleSystem Particles;
 
 		public GameObject NormalVersion;
 		public GameObject RuinedVersion;
@@ -44,6 +45,8 @@ namespace Game.Player
 			_activeFading = false;
 			Gun1.SetActive(false);
 			Gun2.SetActive(false);
+			Particles.Stop(true);
+			Particles.Clear(true);
 			enabled = true;
 		}
 
@@ -70,6 +73,8 @@ namespace Game.Player
 
 					Gun1.SetActive(true);
 					Gun2.SetActive(true);
+					
+					Particles.Play(true);
 
 					_currentFadeValue = 0f;
 					GameEvents.CastleTrashed.Dispatch();

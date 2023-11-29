@@ -25,7 +25,7 @@ namespace Game.Player
 		void Awake()
 		{
 			_playerTransform = transform;
-			_currentMeshForward = _playerTransform.forward;
+			_currentMeshForward = PlayerMesh.forward;
 			
 			GameEvents.ProjectileSpawned.AddListener(OnProjectileSpawned);
 			GameEvents.PlayerHurt.AddListener(OnPlayerHurt);
@@ -33,12 +33,22 @@ namespace Game.Player
 			GameEvents.RoundOver.AddListener(OnRoundEnded);
 			GameEvents.CutsceneState.AddListener(OnCutsceneState);
 			
+			_animator.SetLayerWeight(1, _upperBodyLayer);
+			_animator.SetFloat(AnimationSpeed, 0);
+			
 			enabled = false;
 		}
 
 		void OnCutsceneState(bool active)
 		{
 			enabled = !active;
+			if (!active)
+			{
+				_upperBodyLayer = 0;
+				_animator.SetLayerWeight(1, _upperBodyLayer);
+				_animator.SetFloat(AnimationSpeed, 0);
+				_animator.SetFloat(AnimationDirection, Vector3.SignedAngle(Weapon.CurrentShotDirection, _currentMeshForward, Vector3.up));
+			}
 		}
 
 		void OnRoundEnded()
