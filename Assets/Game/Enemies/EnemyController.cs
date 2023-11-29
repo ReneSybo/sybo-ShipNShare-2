@@ -11,6 +11,7 @@ namespace Game.Enemies
 	{
 		Agile,
 		Brute,
+		Rival,
 	}
 	
 	public class EnemyController : MonoBehaviour, ISpawnable
