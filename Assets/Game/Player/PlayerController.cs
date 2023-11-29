@@ -16,6 +16,8 @@ namespace Game.Player
 		public Transform PlayerMesh;
 		public Animator _animator;
 		public Weapon Weapon;
+		public GameObject Gun1;
+		public GameObject Gun2;
 
 		float _upperBodyLayer;
 		public Vector3 CurrentSpeed;
@@ -111,6 +113,9 @@ namespace Game.Player
 				if (Input.GetKeyDown(KeyCode.Space))
 				{
 					_animator.SetInteger(Rand, Random.Range(0,3));
+					
+					Gun1.SetActive(false);
+					Gun2.SetActive(false);
 				}
 				
 				_upperBodyLayer = 0;
@@ -120,6 +125,9 @@ namespace Game.Player
 			}
 			else
 			{
+				Gun1.SetActive(true);
+				Gun2.SetActive(true);
+				
 				GlobalVariables.IsFlexing = false;
 				_animator.SetBool(Flexing, false);
 				UpdateCurrentSpeed();

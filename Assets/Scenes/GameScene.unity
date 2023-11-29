@@ -2568,6 +2568,7 @@ MonoBehaviour:
   _scorePerCoinPickup: 2
   _scorePerUpgrade: 1
   _scorePerCastleSmash: 10
+  _scorePerSeconfFlex: 1
   _scoreLostPerSecond: 0.2
 --- !u!1 &1977380237
 GameObject:
@@ -3846,6 +3847,14 @@ PrefabInstance:
       propertyPath: Pool
       value: 
       objectReference: {fileID: 1179139677}
+    - target: {fileID: 6996147090855601965, guid: b668a9532d12bca44b86de220717d4f2, type: 3}
+      propertyPath: Gun1
+      value: 
+      objectReference: {fileID: 121903447}
+    - target: {fileID: 6996147090855601965, guid: b668a9532d12bca44b86de220717d4f2, type: 3}
+      propertyPath: Gun2
+      value: 
+      objectReference: {fileID: 190320136}
     - target: {fileID: 8356981497302008640, guid: b668a9532d12bca44b86de220717d4f2, type: 3}
       propertyPath: m_Name
       value: Player

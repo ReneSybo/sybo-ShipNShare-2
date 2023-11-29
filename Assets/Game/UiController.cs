@@ -23,11 +23,14 @@ namespace Game
 		public GameObject MenuScene3D;
 		public GameObject EndScene3D;
 		
+		bool _isInRound;
+		
 		void Awake()
 		{
 			GameEvents.GameEnded.AddListener(OnGameEnded);
 			GameEvents.GameStarted.AddListener(OnGameStarted);
 			GameEvents.RoundOver.AddListener(OnRoundEnded);
+			GameEvents.RoundStarted.AddListener(OnRoundStarted);
 			GameEvents.CutsceneState.AddListener(OnCutsceneState);
 			GameEvents.MoneyGained.AddListener(OnMoneyGained);
 			GameEvents.MoneySpend.AddListener(UpdateMoneyText);
@@ -35,9 +38,16 @@ namespace Game
 			OnResetGame();
 		}
 
+		void OnRoundStarted()
+		{
+			_isInRound = true;
+		}
+
 		void OnGameStarted()
 		{
+			_isInRound = false;
 			GlobalVariables.ScoreLostToTime = 0;
+			GlobalVariables.ScoreGainedFromFlex = 0;
 		}
 
 		void OnMoneyGained(MoneyEntity entity)
@@ -47,8 +57,12 @@ namespace Game
 
 		void Update()
 		{
+			if (GlobalVariables.IsFlexing && _isInRound)
+			{
+				GlobalVariables.ScoreGainedFromFlex += GameTime.DeltaTime * GlobalVariables.ScorePerSeconfFlex;
+			}
 			GlobalVariables.ScoreLostToTime += GameTime.DeltaTime * GlobalVariables.ScoreLostPerSecond;
-			int totalScore = (int)(GlobalVariables.Score - GlobalVariables.ScoreLostToTime);
+			int totalScore = (int)(GlobalVariables.Score - GlobalVariables.ScoreLostToTime + GlobalVariables.ScoreGainedFromFlex);
 			ScoreText.text = "Score: " + totalScore.ToString();
 		}
 
@@ -113,6 +127,7 @@ namespace Game
 		void OnRoundEnded()
 		{
 			HideAll();
+			_isInRound = false;
 			ShopRoot.SetActive(true);
 			ShopScene3D.SetActive(true);
 			HudRoot.SetActive(true);

@@ -18,6 +18,7 @@ namespace Game.Player
 		[SerializeField] int _scorePerCoinPickup = 10;
 		[SerializeField] int _scorePerUpgrade = 10;
 		[SerializeField] int _scorePerCastleSmash = 10;
+		[SerializeField] float _scorePerSeconfFlex = 1;
 		[SerializeField] float _scoreLostPerSecond = 10;
 		
 		
@@ -33,12 +34,14 @@ namespace Game.Player
 		public static int Money;
 		public static int Score;
 		public static float ScoreLostToTime;
+		public static float ScoreGainedFromFlex;
 		
 		public static int ScorePerKill;
 		public static int ScorePerCoinPickup;
 		public static int ScorePerUpgrade;
 		public static int ScorePerCastleSmash;
 		public static float ScoreLostPerSecond;
+		public static float ScorePerSeconfFlex;
 		
 		public static float TotalDamageScale = 1f;
 		public static float TotalHealthScale = 1f;
@@ -67,6 +70,7 @@ namespace Game.Player
 			ScorePerUpgrade = _scorePerUpgrade;
 			ScorePerCastleSmash = _scorePerCastleSmash;
 			ScoreLostPerSecond = _scoreLostPerSecond;
+			ScorePerSeconfFlex = _scorePerSeconfFlex;
 		}
 		
 		void OnDrawGizmos()
