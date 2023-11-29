@@ -17,12 +17,12 @@ MonoBehaviour:
     Count: 40
     TimeBetweenSpawn: 0.5
   - Config: {fileID: 11400000, guid: 07e0d685dfe481b438b51a79ffb18a2d, type: 2}
-    Count: 8
+    Count: 5
     TimeBetweenSpawn: 0.8
   - Config: {fileID: 11400000, guid: 61a3ac044f3b53d44b4874e9d57d960d, type: 2}
-    Count: 2
+    Count: 1
     TimeBetweenSpawn: 5
-  HealthScale: 0.4
+  HealthScale: 0.3
   DamageScale: 0.2
   SpeedScale: 0.3
   AttackSpeedScale: 0.1
