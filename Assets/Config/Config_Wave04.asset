@@ -20,7 +20,7 @@ MonoBehaviour:
     Count: 30
     TimeBetweenSpawn: 1
   - Config: {fileID: 11400000, guid: 61a3ac044f3b53d44b4874e9d57d960d, type: 2}
-    Count: 6
+    Count: 2
     TimeBetweenSpawn: 2
   HealthScale: 0.3
   DamageScale: 0.3
