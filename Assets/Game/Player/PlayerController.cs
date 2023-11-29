@@ -22,23 +22,43 @@ namespace Game.Player
 		Transform _playerTransform;
 		Vector3 _currentMeshForward;
 
+		Vector3 _initialForward;
+		
 		void Awake()
 		{
 			_playerTransform = transform;
-			_currentMeshForward = _playerTransform.forward;
+			_currentMeshForward = PlayerMesh.forward;
+			_initialForward = _currentMeshForward;
 			
 			GameEvents.ProjectileSpawned.AddListener(OnProjectileSpawned);
 			GameEvents.PlayerHurt.AddListener(OnPlayerHurt);
 			GameEvents.RoundStarted.AddListener(OnRoundStarted);
 			GameEvents.RoundOver.AddListener(OnRoundEnded);
+			GameEvents.GameStarted.AddListener(OnGameStart);
 			GameEvents.CutsceneState.AddListener(OnCutsceneState);
 			
+			_animator.SetLayerWeight(1, _upperBodyLayer);
+			_animator.SetFloat(AnimationSpeed, 0);
+			
 			enabled = false;
+		}
+
+		void OnGameStart()
+		{
+			GlobalVariables.Score = 0;
+			GlobalVariables.ScoreLostToTime = 0;
 		}
 
 		void OnCutsceneState(bool active)
 		{
 			enabled = !active;
+			if (!active)
+			{
+				_upperBodyLayer = 0;
+				_animator.SetLayerWeight(1, _upperBodyLayer);
+				_animator.SetFloat(AnimationSpeed, 0);
+				_animator.SetFloat(AnimationDirection, Vector3.SignedAngle(Weapon.CurrentShotDirection, _currentMeshForward, Vector3.up));
+			}
 		}
 
 		void OnRoundEnded()
@@ -58,11 +78,17 @@ namespace Game.Player
 				GameEvents.GameEnded.Dispatch();
 				_animator.SetFloat(AnimationSpeed, 0);
 				GlobalVariables.PlayerHealth = GlobalVariables.PlayerStartHealth;
+				GlobalVariables.PlayerMaxHealth = GlobalVariables.PlayerStartHealth;
 				GlobalVariables.Money = 0;
+				GlobalVariables.TotalDamageScale = 1;
+				GlobalVariables.TotalHealthScale = 1;
+				GlobalVariables.TotalSpeedScale = 1;
+				GlobalVariables.TotalAttackSpeedScale = 1;
 				enabled = false;
 				
-				_playerTransform.localPosition = Vector3.zero;
-				_currentMeshForward = Vector3.forward;
+				_playerTransform.localPosition = new Vector3(-1.99f, 0f, 3f);
+				_currentMeshForward = _initialForward;
+				PlayerMesh.forward = _initialForward;
 				CurrentSpeed = Vector3.zero;
 			}
 			

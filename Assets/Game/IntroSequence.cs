@@ -18,6 +18,7 @@ namespace Game
 			if (!Animation.isPlaying)
 			{
 				GameEvents.CutsceneState.Dispatch(false);
+				gameObject.SetActive(false);
 			}
 		}
 	}

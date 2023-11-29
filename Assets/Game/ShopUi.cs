@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Game.Player;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Game
@@ -42,8 +43,15 @@ namespace Game
 
 		public void OnTryBuyHealth()
 		{
-			Upgrades.Instance.Buy(UpgradeType.Health);
+			bool bought = Upgrades.Instance.Buy(UpgradeType.Health);
 			UpdateButtonState(HealthButton, HealthSlider, UpgradeType.Health);
+
+			if (bought)
+			{
+				float healthIncrement = Upgrades.Instance.GetIncrement(UpgradeType.Health);
+				GlobalVariables.PlayerHealth += healthIncrement;
+				GlobalVariables.PlayerMaxHealth += healthIncrement;
+			}
 		}
 		public void OnTryBuyAttackSpeed()
 		{

@@ -16,7 +16,7 @@ namespace Game.Player
 
 		void OnUpdateHealth()
 		{
-			float ratio = GlobalVariables.PlayerHealth / GlobalVariables.PlayerStartHealth;
+			float ratio = GlobalVariables.PlayerHealth / GlobalVariables.PlayerMaxHealth;
 			Display.localScale = new Vector3(ratio, 1, 1);
 		}
 	}

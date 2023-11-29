@@ -39,6 +39,7 @@ namespace Game.Enemies
 		{
 			if (_activeMoney.Remove(money))
 			{
+				GlobalVariables.Score += GlobalVariables.ScorePerCoinPickup;
 				MoneyPool.ReturnEntity(money);
 			}
 		}
@@ -100,6 +101,7 @@ namespace Game.Enemies
 
 		void OnEnemyDied(EnemyController enemy)
 		{
+			GlobalVariables.Score += GlobalVariables.ScorePerKill;
 			EnemyPool.ReturnEntity(enemy);
 
 			EnemyDeath enemyDeath = DeathPool.SpawnItem();
@@ -125,6 +127,11 @@ namespace Game.Enemies
 
 		public EnemyRound(DifficultyConfig currentConfig)
 		{
+			GlobalVariables.TotalDamageScale += currentConfig.DamageScale;
+			GlobalVariables.TotalHealthScale += currentConfig.HealthScale;
+			GlobalVariables.TotalSpeedScale += currentConfig.SpeedScale;
+			GlobalVariables.TotalAttackSpeedScale += currentConfig.AttackSpeedScale;
+			
 			_spawnInfo = new EnemyRoundInfo[currentConfig.Compositions.Length];
 			for (int i = 0; i < currentConfig.Compositions.Length; i++)
 			{
