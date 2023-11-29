@@ -132,9 +132,9 @@ namespace Game.Player
 			{
 				if (Input.GetKeyUp(KeyCode.Space))
 				{
-					Heart.SetActive(false);
 					GameObject.Find("HUD").GetComponent<Animator>().SetBool("Flexing", false);
 				}
+				Heart.SetActive(false);
 				Gun1.SetActive(true);
 				Gun2.SetActive(true);
 				
