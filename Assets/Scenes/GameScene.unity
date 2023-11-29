@@ -3501,6 +3501,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d7551c380a120bd46983915db0723269, type: 2}
   EnemyPoolAgile: {fileID: 621027309}
   EnemyPoolBrute: {fileID: 2001258969}
+  EnemyPoolRival: {fileID: 2086963336}
   DeathPoolAgile: {fileID: 621027310}
   DeathPoolBrute: {fileID: 2001258970}
   MoneyPool: {fileID: 2008969502}
@@ -3518,6 +3519,7 @@ Transform:
   m_Children:
   - {fileID: 2001258968}
   - {fileID: 621027308}
+  - {fileID: 2086963335}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3540,6 +3542,53 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2575810342983952328, guid: 14e057b0026f9534994fbc64c371116a, type: 3}
   m_PrefabInstance: {fileID: 2575810343074184392}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2086963334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2086963335}
+  - component: {fileID: 2086963336}
+  m_Layer: 0
+  m_Name: Rivals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2086963335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086963334}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008969499}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2086963336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086963334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087a18c188604a44a6f5dde7944de716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialSpawnCount: 5
+  Source: {fileID: 5340388897593716612, guid: 96b29908e5a02074683b3e5cd4481dce, type: 3}
+  Type: 2
 --- !u!1001 &2575810343074184392
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ namespace Game.Enemies
 		
 		public EnemySpawnPool EnemyPoolAgile;
 		public EnemySpawnPool EnemyPoolBrute;
+		public EnemySpawnPool EnemyPoolRival;
 		public EnemyDeathSpawnPool DeathPoolAgile;
 		public EnemyDeathSpawnPool DeathPoolBrute;
 		public MoneySpawnPool MoneyPool;
@@ -81,6 +82,8 @@ namespace Game.Enemies
 					return EnemyPoolAgile;
 				case EnemyType.Brute:
 					return EnemyPoolBrute;
+				case EnemyType.Rival:
+					return EnemyPoolRival;
 			}
 			
 			return EnemyPoolAgile;
@@ -90,6 +93,7 @@ namespace Game.Enemies
 			switch (type)
 			{
 				case EnemyType.Agile: 
+				case EnemyType.Rival: 
 					return DeathPoolAgile;
 				case EnemyType.Brute:
 					return DeathPoolBrute;
