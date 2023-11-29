@@ -16,6 +16,9 @@ namespace Game.Player
 		public GameObject TutorialArrow;
 		public GameObject Gun1;
 		public GameObject Gun2;
+
+		public GameObject NormalVersion;
+		public GameObject RuinedVersion;
 		
 		Transform _transform;
 		bool _activeChecking;
@@ -32,7 +35,8 @@ namespace Game.Player
 
 		void OnGameStart()
 		{
-			_transform.rotation = Quaternion.Euler(0, 0, 0);
+			NormalVersion.SetActive(true);
+			RuinedVersion.SetActive(false);
 			TextMaterial.SetFloat(FaceDilate, 0);
 			TutorialArrow.SetActive(true);
 			TutorialText.SetActive(true);
@@ -57,8 +61,9 @@ namespace Game.Player
 				if (distanceToPlayer <= TrashDistance)
 				{
 					GameEvents.PlayAudio.Dispatch(AudioType.HitCastle);
-					
-					_transform.rotation = Quaternion.Euler(0, 0, -180);
+
+					NormalVersion.SetActive(false);
+					RuinedVersion.SetActive(true);
 					_activeChecking = false;
 					_activeFading = true;
 					TutorialArrow.SetActive(false);
