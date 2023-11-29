@@ -45,8 +45,11 @@ namespace Game.Player
 			_activeFading = false;
 			Gun1.SetActive(false);
 			Gun2.SetActive(false);
-			Particles.Stop(true);
-			Particles.Clear(true);
+			if (Particles != null)
+			{
+				Particles.Stop(true);
+				Particles.Clear(true);
+			}
 			enabled = true;
 		}
 
@@ -73,8 +76,11 @@ namespace Game.Player
 
 					Gun1.SetActive(true);
 					Gun2.SetActive(true);
-					
-					Particles.Play(true);
+
+					if (Particles != null)
+					{
+						Particles.Play(true);
+					}
 
 					_currentFadeValue = 0f;
 					GameEvents.CastleTrashed.Dispatch();

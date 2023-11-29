@@ -22,10 +22,13 @@ namespace Game.Player
 		Transform _playerTransform;
 		Vector3 _currentMeshForward;
 
+		Vector3 _initialForward;
+		
 		void Awake()
 		{
 			_playerTransform = transform;
 			_currentMeshForward = PlayerMesh.forward;
+			_initialForward = _currentMeshForward;
 			
 			GameEvents.ProjectileSpawned.AddListener(OnProjectileSpawned);
 			GameEvents.PlayerHurt.AddListener(OnPlayerHurt);
@@ -72,8 +75,9 @@ namespace Game.Player
 				GlobalVariables.Money = 0;
 				enabled = false;
 				
-				_playerTransform.localPosition = Vector3.zero;
-				_currentMeshForward = Vector3.forward;
+				_playerTransform.localPosition = new Vector3(-1.99f, 0f, 3f);
+				_currentMeshForward = _initialForward;
+				PlayerMesh.forward = _initialForward;
 				CurrentSpeed = Vector3.zero;
 			}
 			
